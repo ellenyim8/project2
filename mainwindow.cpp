@@ -6,10 +6,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->label->show();
+    ui->modifySouvenirs->show();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete ms;
+}
+
+void MainWindow::on_modifySouvenirs_clicked()
+{
+    ms = new ModifySouvenirs(nullptr, &sc);
+    ms->show();
 }
 
