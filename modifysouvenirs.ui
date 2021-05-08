@@ -64,25 +64,6 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="quantityLabel">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>160</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::RightToLeft</enum>
-   </property>
-   <property name="text">
-    <string>Quantity:</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-   </property>
-  </widget>
   <widget class="QTextBrowser" name="report">
    <property name="geometry">
     <rect>
@@ -146,16 +127,6 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_quantity">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>160</y>
-     <width>121</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="viewCurrentList">
    <property name="geometry">
     <rect>
@@ -186,15 +157,10 @@ p, li { white-space: pre-wrap; }
   <zorder>exit</zorder>
   <zorder>itemLabel</zorder>
   <zorder>priceLabel</zorder>
-  <zorder>quantityLabel</zorder>
-  <zorder>addSouvenirButton</zorder>
-  <zorder>removeButton</zorder>
-  <zorder>searchButton</zorder>
   <zorder>addButtonSubmit</zorder>
   <zorder>deleteButtonSubmit</zorder>
   <zorder>input_souvenir</zorder>
   <zorder>input_price</zorder>
-  <zorder>input_quantity</zorder>
   <zorder>viewCurrentList</zorder>
   <zorder>viewButton</zorder>
  </widget>

@@ -13,7 +13,7 @@
 SouvenirContainer::SouvenirContainer()
     : souvenir_count(0)
 {
-    souvenirs = new Souvenir[20];
+    souvenirs = new Souvenir[40];
 }
 
 /****************************************************
@@ -131,7 +131,7 @@ void SouvenirContainer::readFile(string name)
         in >> quantity;
         in.ignore();
 
-        Souvenir temp(input, price, quantity);
+        Souvenir temp(input, price);
         this->add_souvenir(temp);
     }
 
@@ -144,7 +144,7 @@ void SouvenirContainer::outFile(string name)
     for (int i=0; i<this->get_souvenirs_count(); i++) {
         Souvenir temp = (*this)[i];
         out << temp.get_item() << "\n";
-        out << temp.get_price() << " : " << temp.get_quantity() << "\n";
+        out << temp.get_price() << "\n";
     }
 
 }

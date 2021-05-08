@@ -39,17 +39,26 @@ ModifySouvenirs::ModifySouvenirs(QWidget* parent, SouvenirContainer* s)
     ui->input_souvenir->show();
     ui->priceLabel->show();
     ui->input_price->show();
-    ui->input_quantity->show();
-    ui->quantityLabel->show();
     ui->report->show();
     ui->addButtonSubmit->show();
     ui->deleteButtonSubmit->show();
 
-    // testing... [will delete later]
-    Souvenir s1("T-shirt", 9.00, 20);
-    Souvenir s2("Cap", 11.00, 15);
+    // testing...
+    /*
+    Baseball cap			$25.99
+    Baseball bat			$35.35
+    Team pennant			$12.99
+    Autographed baseball    $19.99
+
+    */
+    Souvenir s1("Baseball bat", 35.35);
+    Souvenir s2("Baseball cap", 25.99);
+    Souvenir s3("Team pennant", 12.99);
+    Souvenir s4("Autographed baseball", 19.99);
     s->add_souvenir(s1);
     s->add_souvenir(s2);
+    s->add_souvenir(s3);
+    s->add_souvenir(s4);
 
     this->sc = s;
 }
@@ -120,8 +129,6 @@ void ModifySouvenirs::generate_souvenir_list()
             list += sc->get_souvenir(i).get_item().c_str();
             list += "\n";
             list += to_string(sc->get_souvenir(i).get_price()).c_str();
-            list += "\t";
-            list += to_string(sc->get_souvenir(i).get_quantity()).c_str();
             list += "\n\n";
         }
     }
@@ -144,17 +151,14 @@ void ModifySouvenirs::on_addButtonSubmit_clicked()
 {
     QString name;
     QString price;
-    QString quantity;
 
     name = ui->input_souvenir->text();
     price = ui->input_price->text();
-    quantity = ui->input_quantity->text();
 
     string souvenir = name.toStdString();
     double price_souvenir = price.toDouble();
-    int s_quan = quantity.toInt();
 
-    Souvenir s(souvenir, price_souvenir, s_quan);
+    Souvenir s(souvenir, price_souvenir);
     sc->add_souvenir(s);
 
     ui->report->setPlainText(QString::fromStdString("Added! Total Souvenirs: "));
@@ -162,7 +166,6 @@ void ModifySouvenirs::on_addButtonSubmit_clicked()
 
     ui->input_souvenir->clear();
     ui->input_price->clear();
-    ui->input_quantity->clear();
 }
 
 /****************************************************
@@ -207,7 +210,7 @@ void ModifySouvenirs::on_viewCurrentList_clicked()
 }
 
 /****************************************************
- * void on_addButtonSubmit_clicked()
+ * void on_viewButton_clicked()
  *  Receives no parameters.
  *  Returns nothing.
  * -------------------------------------------------
@@ -233,17 +236,15 @@ void ModifySouvenirs::on_viewButton_clicked()
     QString msg = "Souvenir information: ";
     QString souvenir = "Souvenir: ";
     QString price = "Price selling at: ";
-    QString quan = "Quantity: ";
     string item = s.get_item();
     double p = s.get_price();
-    int q = s.get_quantity();
     QString display_item = QString::fromStdString(item);
     QString display_price = QString::number(p);
-    QString display_quantity = QString::number(q);
 
     ui->report->setPlainText(msg + "\n" + souvenir + display_item
-                             + "\n" + price + display_price + "\t"
-                             + quan + display_quantity + "\n");
+                             + "\n" + price + display_price + "\n");
 
 }
+
+// - save executions when admin logs out ??
 

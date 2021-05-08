@@ -13,24 +13,22 @@ Souvenir::Souvenir()
 {
     item = "";
     price = 0;
-    quantity = 0;
 }
 
 /****************************************************
- * Souvenir(string n, double p, int q)
+ * Souvenir(string n, double p)
  *
- * constructor; sets parameters value with
- * private member variables
+ * constructor; initializes member item and price
+ * with parameters
  * -------------------------------------------------
- *  Parameters: (string) n, (double) p, (int) q
+ *  Parameters: (string) n, (double) p
  * -------------------------------------------------
- *  Returns: none
+ *  Returns: nothing
 ****************************************************/
-Souvenir::Souvenir(string n, double p, int q)
+Souvenir::Souvenir(string n, double p)
 {
     item = n;
     price = p;
-    quantity = q;
 }
 
 /****************************************************
@@ -64,21 +62,6 @@ void Souvenir::set_price(double p)
 }
 
 /****************************************************
- * void set_quantity(int q)
- *
- * mutator; sets parametized int with private
- * member int quantity
- * -------------------------------------------------
- *  Parameters: q (IN: int)
- * -------------------------------------------------
- *  Returns: none
-****************************************************/
-void Souvenir::set_quantity(int q)
-{
-    quantity = q;
-}
-
-/****************************************************
  * string get_item() const
  *
  * accessor; returns private member item
@@ -106,19 +89,6 @@ double Souvenir::get_price() const
     return price;
 }
 
-/****************************************************
- * int get_quantity() const
- *
- * accessor; returns private member quantity
- * -------------------------------------------------
- *  Parameters: none
- * -------------------------------------------------
- *  Returns: string
-****************************************************/
-int Souvenir::get_quantity() const
-{
-    return quantity;
-}
 
 bool Souvenir::operator==(const Souvenir &s)
 {
