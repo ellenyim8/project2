@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "modifysouvenirs.h"
+#include "map.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +19,8 @@ public:
 
 private slots:
     void on_modifySouvenirs_clicked();
+
+    void on_Map_clicked();
 
 private:
     Ui::MainWindow *ui;

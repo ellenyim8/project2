@@ -23,3 +23,13 @@ void MainWindow::on_modifySouvenirs_clicked()
     ms->show();
 }
 
+
+void MainWindow::on_Map_clicked()
+{
+    Map m;
+    this->hide();
+    m.setModal(true);
+    m.exec();
+    if(m.close())
+        this->show();
+}

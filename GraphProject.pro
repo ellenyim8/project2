@@ -18,16 +18,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     date.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    map.cpp \
+    modifysouvenirs.cpp \
+    souvenir.cpp \
+    souvenircontainer.cpp
 
 HEADERS += \
     date.h \
-    mainwindow.h
+    mainwindow.h \
+    map.h \
+    modifysouvenirs.h \
+    souvenir.h \
+    souvenircontainer.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    map.ui \
+    modifysouvenirs.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc
