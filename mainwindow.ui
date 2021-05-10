@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -27,63 +27,43 @@
      <string>Baseball</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPushButton" name="admin">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>10</y>
-      <width>131</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QCheckBox" name="userBox">
-       <property name="text">
-        <string>User</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="adminBox">
-       <property name="text">
-        <string>Admin</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="submit">
-       <property name="text">
-        <string>Submit</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="modifySouvenirs">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>110</y>
+      <x>190</x>
+      <y>100</y>
       <width>151</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Modify Souvenirs</string>
+     <string>Admin?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="user">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>User?</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Map">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>120</y>
-      <width>75</width>
-      <height>23</height>
+      <x>530</x>
+      <y>105</y>
+      <width>111</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Show Map</string>
+     <string>Show map</string>
     </property>
    </widget>
   </widget>
@@ -93,7 +73,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

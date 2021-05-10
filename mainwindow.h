@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "modifysouvenirs.h"
+#include "admin.h"
 #include "map.h"
 
 QT_BEGIN_NAMESPACE
@@ -18,14 +19,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_modifySouvenirs_clicked();
+    void on_admin_clicked();
+    void on_user_clicked();
 
     void on_Map_clicked();
 
 private:
     Ui::MainWindow *ui;
-    ModifySouvenirs* ms;        // admin; modify souvenirs
-    SouvenirContainer sc;       // souvenir container object
+
+    Admin* administrator;
+
 };
 
 

@@ -7,22 +7,27 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->label->show();
-    ui->modifySouvenirs->show();
+    ui->title->show();
+    ui->user->show();
+    ui->admin->show();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete ms;
+    delete administrator;
 }
 
-void MainWindow::on_modifySouvenirs_clicked()
+void MainWindow::on_admin_clicked()
 {
-    ms = new ModifySouvenirs(nullptr, &sc);
-    ms->show();
+    administrator = new Admin(nullptr);
+    administrator->show();
 }
 
+void MainWindow::on_user_clicked()
+{
+    // if click on user button
+}
 
 void MainWindow::on_Map_clicked()
 {
@@ -30,6 +35,7 @@ void MainWindow::on_Map_clicked()
     this->hide();
     m.setModal(true);
     m.exec();
-    if(m.close())
+    if (m.close())
         this->show();
 }
+
