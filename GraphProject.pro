@@ -16,23 +16,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    admin.cpp \
     date.cpp \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
     modifysouvenirs.cpp \
     souvenir.cpp \
-    souvenircontainer.cpp
+    souvenircontainer.cpp \
+    stadium.cpp
 
 HEADERS += \
+    admin.h \
     date.h \
     mainwindow.h \
     map.h \
     modifysouvenirs.h \
     souvenir.h \
-    souvenircontainer.h
+    souvenircontainer.h \
+    stadium.h
 
 FORMS += \
+    admin.ui \
     mainwindow.ui \
     map.ui \
     modifysouvenirs.ui
