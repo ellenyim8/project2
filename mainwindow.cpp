@@ -39,3 +39,13 @@ void MainWindow::on_Map_clicked()
         this->show();
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    stadiumlists l;
+    this->hide();
+    l.setModal(true);
+    l.exec();
+    if (l.close())
+        this->show();
+}

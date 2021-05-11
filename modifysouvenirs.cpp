@@ -49,6 +49,7 @@ ModifySouvenirs::ModifySouvenirs(QWidget* parent, SouvenirContainer* s)
     Baseball bat			$35.35
     Team pennant			$12.99
     Autographed baseball    $19.99
+
     */
     Souvenir s1("Baseball bat", 35.35);
     Souvenir s2("Baseball cap", 25.99);
@@ -119,8 +120,6 @@ void ModifySouvenirs::empty()
 void ModifySouvenirs::generate_souvenir_list()
 {
     QString list = "-----------------------------------\n";
-    string tempString;
-
     if (this->sc->get_souvenirs_count() == 0)
         empty();
 
@@ -129,11 +128,7 @@ void ModifySouvenirs::generate_souvenir_list()
         for (int i=0; i<this->sc->get_souvenirs_count(); i++) {
             list += sc->get_souvenir(i).get_item().c_str();
             list += "\n";
-            //create temporary string
-            tempString = to_string(sc->get_souvenir(i).get_price()).c_str();
-            //cut string up to decimal point and two places after
-            tempString = tempString.substr(0, tempString.find(".")+3);
-            list += tempString.c_str();
+            list += to_string(sc->get_souvenir(i).get_price()).c_str();
             list += "\n\n";
         }
     }

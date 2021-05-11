@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/resource">
         <file>image/map2.png</file>
+        <file>image/American League Teams.txt</file>
     </qresource>
 </RCC>

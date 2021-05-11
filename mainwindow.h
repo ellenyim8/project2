@@ -5,6 +5,8 @@
 #include "modifysouvenirs.h"
 #include "admin.h"
 #include "map.h"
+#include "global.h"
+#include "stadiumlists.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +25,8 @@ private slots:
     void on_user_clicked();
 
     void on_Map_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
