@@ -41,6 +41,13 @@ public:
     }
 };
 
+class StadiumsNameMin{
+public:
+    bool operator()(Stadiums& s1,Stadiums& s2){
+        return s1.Stadium_Name < s2.Stadium_Name;
+    }
+};
+
 
 template <typename E, typename C>               // element and comparator
 class Heap {                           			// heap interface
