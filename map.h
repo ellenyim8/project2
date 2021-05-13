@@ -2,6 +2,7 @@
 #define MAP_H
 
 #include <QDialog>
+#include <QPainter>
 namespace Ui {
 class Map;
 }
