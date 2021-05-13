@@ -7,6 +7,7 @@
 #include "map.h"
 #include "global.h"
 #include "stadiumlists.h"
+#include "trips.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,8 @@ private slots:
     void on_Map_clicked();
 
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

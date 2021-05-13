@@ -29,6 +29,7 @@ void MainWindow::on_user_clicked()
     // if click on user button
 }
 
+// show map button
 void MainWindow::on_Map_clicked()
 {
     Map m;
@@ -39,7 +40,7 @@ void MainWindow::on_Map_clicked()
         this->show();
 }
 
-
+// teams list button
 void MainWindow::on_pushButton_clicked()
 {
     stadiumlists l;
@@ -47,5 +48,16 @@ void MainWindow::on_pushButton_clicked()
     l.setModal(true);
     l.exec();
     if (l.close())
+        this->show();
+}
+
+// trips to other stadiums button
+void MainWindow::on_pushButton_2_clicked()
+{
+    trips t;
+    this->hide();
+    t.setModal(true);
+    t.exec();
+    if (t.close())
         this->show();
 }

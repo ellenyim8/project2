@@ -77,6 +77,7 @@ class Heap {                           			// heap interface
         int size() const;
         bool is_empty() const;
         void print_preorder(int position = 0);
+        bool contains(std::string stadium_name);
 
     private:									//place any private member functions
         void expand();							//resize the array
@@ -414,5 +415,15 @@ void Heap<E,C>::print_preorder(int position)  // IN - position to start with
     std::cout << _elements[position] << " ";
     print_preorder(position*2+1);
     print_preorder(position*2+2);
+}
+
+template <typename E, typename C>
+bool Heap<E,C>::contains(std::string stadium_name)
+{
+    for(int i = 0;i < _size;i++){
+        if(_elements[i].Stadium_Name == stadium_name)
+            return true;
+    }
+    return false;
 }
 #endif // HEAP_H

@@ -25,9 +25,11 @@ SOURCES += \
     souvenir.cpp \
     souvenircontainer.cpp \
     stadium.cpp \
-    stadiumlists.cpp
+    stadiumlists.cpp \
+    trips.cpp
 
 HEADERS += \
+    Dijkstra.h \
     admin.h \
     binaryTree.h \
     date.h \
@@ -39,14 +41,16 @@ HEADERS += \
     souvenir.h \
     souvenircontainer.h \
     stadium.h \
-    stadiumlists.h
+    stadiumlists.h \
+    trips.h
 
 FORMS += \
     admin.ui \
     mainwindow.ui \
     map.ui \
     modifysouvenirs.ui \
-    stadiumlists.ui
+    stadiumlists.ui \
+    trips.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
