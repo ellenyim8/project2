@@ -21,12 +21,14 @@ public:
     ModifySouvenirs(QWidget*parent, SouvenirContainer* s);
     ~ModifySouvenirs();
 
+    void saveAtSouvenirFile();      // saves modifications
+
 private slots:
     void on_addButtonSubmit_clicked();
     void on_deleteButtonSubmit_clicked();
     void on_viewCurrentList_clicked();
     void on_viewButton_clicked();
-    void on_exit_clicked();
+    void on_change_clicked();
 
 private:
     void empty();
@@ -34,7 +36,6 @@ private:
 
     Ui::ModifySouvenirs *ui;
     SouvenirContainer* sc;
-
 };
 
 

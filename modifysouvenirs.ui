@@ -6,31 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>444</width>
-    <height>462</height>
+    <width>490</width>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="exit">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Back To Home Page</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="itemLabel">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>80</y>
+     <x>110</x>
+     <y>20</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -48,8 +35,8 @@
   <widget class="QLabel" name="priceLabel">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>120</y>
+     <x>110</x>
+     <y>60</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -67,10 +54,10 @@
   <widget class="QTextBrowser" name="report">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>200</y>
-     <width>421</width>
-     <height>251</height>
+     <x>40</x>
+     <y>170</y>
+     <width>411</width>
+     <height>241</height>
     </rect>
    </property>
    <property name="html">
@@ -84,8 +71,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="addButtonSubmit">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>80</y>
+     <x>360</x>
+     <y>20</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -97,8 +84,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="deleteButtonSubmit">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>110</y>
+     <x>360</x>
+     <y>50</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -110,8 +97,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QLineEdit" name="input_souvenir">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>80</y>
+     <x>230</x>
+     <y>20</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -120,8 +107,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QLineEdit" name="input_price">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>120</y>
+     <x>230</x>
+     <y>60</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -130,8 +117,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="viewCurrentList">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
+     <x>40</x>
+     <y>130</y>
      <width>151</width>
      <height>21</height>
     </rect>
@@ -143,8 +130,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="viewButton">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>140</y>
+     <x>360</x>
+     <y>80</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -153,8 +140,20 @@ p, li { white-space: pre-wrap; }
     <string>View</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="change">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>110</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Change</string>
+   </property>
+  </widget>
   <zorder>report</zorder>
-  <zorder>exit</zorder>
   <zorder>itemLabel</zorder>
   <zorder>priceLabel</zorder>
   <zorder>addButtonSubmit</zorder>
@@ -163,6 +162,7 @@ p, li { white-space: pre-wrap; }
   <zorder>input_price</zorder>
   <zorder>viewCurrentList</zorder>
   <zorder>viewButton</zorder>
+  <zorder>change</zorder>
  </widget>
  <resources/>
  <connections/>

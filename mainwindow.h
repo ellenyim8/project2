@@ -23,7 +23,6 @@ public:
 
 private slots:
     void on_admin_clicked();
-    void on_user_clicked();
 
     void on_Map_clicked();
 
@@ -33,7 +32,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
     Admin* administrator;
 
 };

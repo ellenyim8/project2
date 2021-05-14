@@ -8,7 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->title->show();
-    ui->user->show();
     ui->admin->show();
 }
 
@@ -20,13 +19,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_admin_clicked()
 {
+    this->hide();
     administrator = new Admin(nullptr);
+    administrator->setModal(true);
     administrator->show();
-}
-
-void MainWindow::on_user_clicked()
-{
-    // if click on user button
 }
 
 // show map button

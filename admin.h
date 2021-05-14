@@ -3,19 +3,6 @@
 
 #include <QDialog>
 #include "modifysouvenirs.h"
-#include "binaryTree.h"
-#include "stadium.h"
-
-struct StadiumComparator
-{
-    bool operator() (Stadium one, Stadium two) {
-        int compare = one.get_team().compare(two.get_team());
-        if (compare < 0)
-            return true;
-        else
-            return false;
-    }
-};
 
 namespace Ui {
 class Admin;
@@ -30,19 +17,13 @@ public:
     ~Admin();
 
 private slots:
-    void on_addNewTeam_clicked();
-    void on_addNewStadium_clicked();
-    void on_displayStadiums_clicked();
-    void on_souvenirsPageButton_clicked();
+    void on_login_clicked();
+    void on_modify_souvenirs_clicked();
 
 private:
     Ui::Admin *ui;
-    BinaryTree<Stadium, StadiumComparator>* stadium_list;
-    vector<Stadium> list;
-
     ModifySouvenirs* ms;
-    SouvenirContainer sc;
-
+    SouvenirContainer svc;
 };
 
 #endif // ADMIN_H

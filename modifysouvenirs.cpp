@@ -33,24 +33,8 @@ ModifySouvenirs::ModifySouvenirs(QWidget* parent, SouvenirContainer* s)
       ui(new Ui::ModifySouvenirs)
 {
     ui->setupUi(this);
-    ui->exit->show();
-
-    ui->itemLabel->show();
-    ui->input_souvenir->show();
-    ui->priceLabel->show();
-    ui->input_price->show();
-    ui->report->show();
-    ui->addButtonSubmit->show();
-    ui->deleteButtonSubmit->show();
 
     // testing...
-    /*
-    Baseball cap			$25.99
-    Baseball bat			$35.35
-    Team pennant			$12.99
-    Autographed baseball    $19.99
-
-    */
     Souvenir s1("Baseball bat", 35.35);
     Souvenir s2("Baseball cap", 25.99);
     Souvenir s3("Team pennant", 12.99);
@@ -77,19 +61,9 @@ ModifySouvenirs::~ModifySouvenirs()
     delete ui;
 }
 
-/****************************************************
- * void on_exit_clicked()
- *  Receives no parameters.
- *  Returns nothing.
- * -------------------------------------------------
- *  Pre-conditions: destructor called
- * -------------------------------------------------
- *  Post-conditions: closes this window
-****************************************************/
-void ModifySouvenirs::on_exit_clicked()
+void ModifySouvenirs::saveAtSouvenirFile()
 {
-    ui->~ModifySouvenirs();
-    ModifySouvenirs::close();
+    //.. save changes to file
 }
 
 /****************************************************
@@ -132,6 +106,7 @@ void ModifySouvenirs::generate_souvenir_list()
             list += "\n\n";
         }
     }
+
     list += "----------End of report----------";
     ui->report->setPlainText(list);
 
@@ -158,11 +133,32 @@ void ModifySouvenirs::on_addButtonSubmit_clicked()
     string souvenir = name.toStdString();
     double price_souvenir = price.toDouble();
 
+    if ((price.toStdString().size() == 0) || (name.toStdString().size() == 0))
+    {
+        QMessageBox msg;
+        msg.setText("something is empty.");
+        msg.exec();
+        return;
+    }
+
+    for (int i=0; i<(int)price.toStdString().size(); ++i)
+    {
+        if (!isdigit(price.toStdString()[i]))
+        {
+            QMessageBox msg;
+            msg.setText("Price should be a number.");
+            msg.exec();
+            return;
+        }
+    }
+
     Souvenir s(souvenir, price_souvenir);
     sc->add_souvenir(s);
 
     ui->report->setPlainText(QString::fromStdString("Added! Total Souvenirs: "));
     ui->report->setPlainText(QString::fromStdString("Added! Total Souvenirs: ") + QString::number(sc->get_souvenirs_count()));
+
+    saveAtSouvenirFile();
 
     ui->input_souvenir->clear();
     ui->input_price->clear();
@@ -180,16 +176,31 @@ void ModifySouvenirs::on_addButtonSubmit_clicked()
 void ModifySouvenirs::on_deleteButtonSubmit_clicked()
 {
     QString name;
-
+    bool exists = false;
     name = ui->input_souvenir->text();
 
-    string souvenir = name.toStdString();
+    for (int i=0; i<sc->get_souvenirs_count(); i++)
+    {
+        if (sc->get_souvenir(i).get_item() == name.toStdString())
+        {
+            sc->remove_souvenir(name.toStdString());
+            exists = true;
+        }
+    }
 
-    sc->remove_souvenir(souvenir);
+    if (!exists)
+    {
+        QMessageBox msg;
+        msg.setText("Souvenir doesn't exists.");
+        msg.exec();
+        return;
+    }
+
     int count = sc->get_souvenirs_count();
     QString msg = "Deleted! Total souvenirs: ";
-
     ui->report->setPlainText(msg + QString::number(count));
+
+    saveAtSouvenirFile();
 
     ui->input_souvenir->clear();
 }
@@ -246,5 +257,54 @@ void ModifySouvenirs::on_viewButton_clicked()
 
 }
 
-// - save executions when admin logs out ??
+void ModifySouvenirs::on_change_clicked()
+{
+    QString name;
+    QString price;
+    double price_amt;
+    bool exists = false;
+
+    name = ui->input_souvenir->text();
+    price = ui->input_price->text();
+
+    if ((price.toStdString().size() == 0) || (name.toStdString().size() == 0))
+    {
+        QMessageBox msg;
+        msg.setText("an input is blank. ");
+        msg.exec();
+        return;
+    }
+
+    for (int i=0; i<(int)price.toStdString().size(); ++i)
+    {
+        if (!isdigit(price.toStdString()[i]))
+        {
+            QMessageBox msg;
+            msg.setText("Price should be a number.");
+            msg.exec();
+            return;
+        }
+    }
+
+    price_amt = stod(price.toStdString());
+    for (int i=0; i<sc->get_souvenirs_count(); i++)
+    {
+        if (sc->get_souvenir(i).get_item() == name.toStdString())
+        {
+            sc->get_souvenir(i).set_price(price_amt);
+            exists = true;
+        }
+    }
+
+    if (!exists)
+    {
+        QMessageBox msg;
+        msg.setText("Souvenir doesn't exist. ");
+        msg.exec();
+        return;
+    }
+
+    saveAtSouvenirFile();
+
+}
 
