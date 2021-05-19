@@ -12,6 +12,7 @@ Heap<Stadiums,StringMin> MLS2;      // major league stadiums sorted by team name
 Heap<Stadiums,StringMin> ALS;       // American league stadiums
 Heap<Stadiums,StringMin> NLS;       // National league stadiums
 Dijkstra<string> MLSP;              // major league stadiums paths
+vector<pair<string,QPoint>> positions;  // store all the stadiums and their positions
 int main(int argc, char *argv[])
 {
     cout << "hello group!";
@@ -68,49 +69,49 @@ int main(int argc, char *argv[])
     dp p2(make_pair(make_pair("AT&T Park","O.co Coliseum"),0));
     dp p3(make_pair(make_pair("Dodger Stadium","AT&T Park"),340));
     dp p4(make_pair(make_pair("AT&T Park","Chase Field"),650));
-    dp p5(make_pair(make_pair("SafeCo Field","Rogers Centre"),2070));
+    dp p5(make_pair(make_pair("SafeCo Field","Rogers Center"),2070));
     dp p6(make_pair(make_pair("SafeCo Field","Target Field"),1390));
     dp p7(make_pair(make_pair("Dodger Stadium","Target Field"),1500));
     dp p8(make_pair(make_pair("Dodger Stadium","Petco Park"),110));
-    dp p9(make_pair(make_pair("Dodger Stadium","Angels Stadium of Anaheim"),0));
+    dp p9(make_pair(make_pair("Dodger Stadium","Angel Stadium"),0));
     dp p10(make_pair(make_pair("Petco Park","Coors Field"),830));
     dp p11(make_pair(make_pair("Petco Park","Chase Field"),300));
     dp p12(make_pair(make_pair("Chase Field","Coors Field"),580));
-    dp p13(make_pair(make_pair("Chase Field","Globe Life Park in Arlington"),870));
+    dp p13(make_pair(make_pair("Chase Field","Rangers Ballpark"),870));
     dp p14(make_pair(make_pair("Chase Field","Minute Maid Park"),1115));
     dp p15(make_pair(make_pair("Coors Field","Kauffman Stadium"),560));
-    dp p16(make_pair(make_pair("Coors Field","Globe Life Park in Arlington"),650));
+    dp p16(make_pair(make_pair("Coors Field","Rangers Ballpark"),650));
     dp p17(make_pair(make_pair("Target Field","Miller Park"),300));
     dp p18(make_pair(make_pair("Target Field","Busch Stadium"),465));
     dp p19(make_pair(make_pair("Kauffman Stadium","US Cellular Field"),415));
     dp p20(make_pair(make_pair("Kauffman Stadium","Busch Stadium"),235));
-    dp p21(make_pair(make_pair("Globe Life Park in Arlington","Kauffman Stadium"),460));
-    dp p22(make_pair(make_pair("Globe Life Park in Arlington","Turner Field"),740));
-    dp p23(make_pair(make_pair("Globe Life Park in Arlington","Minute Maid Park"),230));
+    dp p21(make_pair(make_pair("Rangers Ballpark","Kauffman Stadium"),460));
+    dp p22(make_pair(make_pair("Rangers Ballpark","Turner Field"),740));
+    dp p23(make_pair(make_pair("Rangers Ballpark","Minute Maid Park"),230));
     dp p24(make_pair(make_pair("Minute Maid Park","Busch Stadium"),680));
     dp p25(make_pair(make_pair("Minute Maid Park","Tropicana Field"),790));
     dp p26(make_pair(make_pair("Minute Maid Park","Marlins Park"),965));
-    dp p27(make_pair(make_pair("Busch Stadium","Great America Ball Park"),310));
+    dp p27(make_pair(make_pair("Busch Stadium","Great American Ballpark"),310));
     dp p28(make_pair(make_pair("Miller Park","Wrigley Field"),80));
-    dp p29(make_pair(make_pair("Miller Park","Rogers Centre"),430));
+    dp p29(make_pair(make_pair("Miller Park","Rogers Center"),430));
     dp p30(make_pair(make_pair("Wrigley Field","US Cellular Field"),0));
     dp p31(make_pair(make_pair("Wrigley Field","Comerica Park"),240));
-    dp p32(make_pair(make_pair("Wrigley Field","Great America Ball Park"),250));
-    dp p33(make_pair(make_pair("Comerica Park","Rogers Centre"),210));
+    dp p32(make_pair(make_pair("Wrigley Field","Great American Ballpark"),250));
+    dp p33(make_pair(make_pair("Comerica Park","Rogers Center"),210));
     dp p34(make_pair(make_pair("Comerica Park","Progressive Field"),90));
-    dp p35(make_pair(make_pair("Great America Ball Park","Progressive Field"),225));
-    dp p36(make_pair(make_pair("Great America Ball Park","PNC Park"),260));
-    dp p37(make_pair(make_pair("Great America Ball Park","Turner Field"),375));
-    dp p38(make_pair(make_pair("Great America Ball Park","Tropicana Field"),790));
+    dp p35(make_pair(make_pair("Great American Ballpark","Progressive Field"),225));
+    dp p36(make_pair(make_pair("Great American Ballpark","PNC Park"),260));
+    dp p37(make_pair(make_pair("Great American Ballpark","Turner Field"),375));
+    dp p38(make_pair(make_pair("Great American Ballpark","Tropicana Field"),790));
     dp p39(make_pair(make_pair("Turner Field","Nationals Park"),560));
     dp p40(make_pair(make_pair("Turner Field","Marlins Park"),600));
     dp p41(make_pair(make_pair("Progressive Field","PNC Park"),115));
-    dp p42(make_pair(make_pair("Rogers Centre","Fenway Park"),430));
-    dp p43(make_pair(make_pair("Rogers Centre","PNC Park"),225));
+    dp p42(make_pair(make_pair("Rogers Center","Fenway Park"),430));
+    dp p43(make_pair(make_pair("Rogers Center","PNC Park"),225));
     dp p44(make_pair(make_pair("PNC Park","Yankee Stadium"),315));
     dp p45(make_pair(make_pair("PNC Park","Nationals Park"),195));
     dp p46(make_pair(make_pair("Tropicana Field","Marlins Park"),210));
-    dp p47(make_pair(make_pair("Nationals Park","Oriole Park at Camden Yards"),0));
+    dp p47(make_pair(make_pair("Nationals Park","Camden Yards"),0));
     dp p48(make_pair(make_pair("Nationals Park","Citizens Bank Park"),90));
     dp p49(make_pair(make_pair("Nationals Park","Marlins Park"),930));
     dp p50(make_pair(make_pair("Marlins Park","Fenway Park"),1255));
@@ -175,6 +176,38 @@ int main(int argc, char *argv[])
     MLSP.insert_path(p53);
 
     MLSP.shortest_path();
+
+    positions.push_back(make_pair("SafeCo Field",QPoint(100,35)));
+    positions.push_back(make_pair("AT&T Park",QPoint(40,230)));
+    positions.push_back(make_pair("O.co Coliseum",QPoint(45,238)));
+    positions.push_back(make_pair("Dodger Stadium",QPoint(80,325)));
+    positions.push_back(make_pair("Angel Stadium",QPoint(85,333)));
+    positions.push_back(make_pair("Petco Park",QPoint(100,355)));
+    positions.push_back(make_pair("Chase Field",QPoint(190,358)));
+    positions.push_back(make_pair("Coors Field",QPoint(315,235)));
+    positions.push_back(make_pair("Target Field",QPoint(505,145)));
+    positions.push_back(make_pair("Kauffman Stadium",QPoint(490,260)));
+    positions.push_back(make_pair("Rangers Ballpark",QPoint(452,395)));
+    positions.push_back(make_pair("Minute Maid Park",QPoint(480,470)));
+    positions.push_back(make_pair("Busch Stadium",QPoint(553,273)));
+    positions.push_back(make_pair("Miller Park",QPoint(585,167)));
+    positions.push_back(make_pair("Wrigley Field",QPoint(589,195)));
+    positions.push_back(make_pair("US Cellular Field",QPoint(593,205)));
+    positions.push_back(make_pair("Comerica Park",QPoint(657,185)));
+    positions.push_back(make_pair("Great American Ballpark",QPoint(652,253)));
+    positions.push_back(make_pair("Turner Field",QPoint(670,360)));
+    positions.push_back(make_pair("Progressive Field",QPoint(685,205)));
+    positions.push_back(make_pair("Rogers Center",QPoint(720,140)));
+    positions.push_back(make_pair("PNC Park",QPoint(725,220)));
+    positions.push_back(make_pair("Tropicana Field",QPoint(720,480)));
+    positions.push_back(make_pair("Marlins Park",QPoint(760,520)));
+    positions.push_back(make_pair("Nationals Park",QPoint(772,240)));
+    positions.push_back(make_pair("Camden Yards",QPoint(778,230)));
+    positions.push_back(make_pair("Citizens Bank Park",QPoint(795,207)));
+    positions.push_back(make_pair("Yankee Stadium",QPoint(810,182)));
+    positions.push_back(make_pair("Citi Field",QPoint(815,192)));
+    positions.push_back(make_pair("Fenway Park",QPoint(845,150)));
+
 
     MainWindow w;
     w.show();

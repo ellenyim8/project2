@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QPainter>
+#include "global.h"
 namespace Ui {
 class Map;
 }

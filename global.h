@@ -3,11 +3,13 @@
 #include <iostream>
 #include "heap.h"
 #include "Dijkstra.h"
+#include <QPainter>
 using namespace std;
 extern Heap<Stadiums,StadiumsNameMin> MLS;
 extern Heap<Stadiums,StringMin> MLS2;
 extern Heap<Stadiums,StringMin> ALS;
 extern Heap<Stadiums,StringMin> NLS;
+extern vector<pair<string,QPoint>> positions;   // store all the stadiums and their positions
 
 typedef pair<string,string> p;
 typedef pair<p,int> dp;
