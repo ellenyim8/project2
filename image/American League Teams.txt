@@ -1,4 +1,4 @@
-Angels Stadium of Anaheim
+Angel Stadium
 Los Angeles Angels of Anaheim
 2000 E Gene Autry Way, 
 Anaheim, CA 92806
@@ -19,7 +19,7 @@ Boston, MA 02215
 (877) 733-7699 
 Opened - April 20, 1912
 Capacity - 37,499 (night) & 37,071 (day)
-Globe Life Park in Arlington
+Rangers Ballpark
 Texas Rangers
 1000 Ballpark Way,
 Arlington, TX 76011
@@ -47,7 +47,7 @@ Oakland, CA 94621
 (510) 569-2121
 Opened - September 18, 1966
 Capacity - 37,090 (April - August) & 55,945 (Sept - Jan)
-Oriole Park at Camden Yards
+Camden Yards
 Baltimore Orioles
 333 West Camden Street
 Baltimore, MD 21201
@@ -61,7 +61,7 @@ Cleveland, OH 44115
 (216) 420-4487
 Opened - April 2, 1994
 Capacity - 42,404
-Rogers Centre
+Rogers Center
 Toronto Blue Jays
 1 Blue Jays Way
 Toronto, Ontario, Canada M5V1J3
