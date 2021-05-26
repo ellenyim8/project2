@@ -2,7 +2,6 @@
 #define GLOBAL_H
 #include <iostream>
 #include "heap.h"
-#include "Dijkstra.h"
 #include <QPainter>
 using namespace std;
 extern Heap<Stadiums,StadiumsNameMin> MLS;
@@ -36,7 +35,7 @@ struct Path{
     }
 };
 
-extern Dijkstra<string> MLSP;
-//extern Dijkstra<string> ALSP;
+extern vector<pair<int,vector<string>>> MLSP;
 extern vector<vector<string>> ALSP;
+
 #endif // GLOBAL_H

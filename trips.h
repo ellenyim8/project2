@@ -2,7 +2,8 @@
 #define TRIPS_H
 
 #include <QDialog>
-//#include "Dijkstra.h"
+#include "Dijkstra.h"
+#include "designtrip.h"
 #include "global.h"
 
 namespace Ui {
