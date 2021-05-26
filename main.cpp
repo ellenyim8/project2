@@ -67,9 +67,6 @@ int main(int argc, char *argv[])
         input2.close();
     }
 
-//    graph g;
-//    g.Dijstra("Dodger Stadium",MLSP);
-
     positions.push_back(make_pair("SafeCo Field",QPoint(100,35)));
     positions.push_back(make_pair("AT&T Park",QPoint(40,230)));
     positions.push_back(make_pair("O.co Coliseum",QPoint(45,238)));

@@ -20,6 +20,7 @@ SOURCES += \
     admin.cpp \
     date.cpp \
     designtrip.cpp \
+    dreamvacation.cpp \
     global.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     binaryTree.h \
     date.h \
     designtrip.h \
+    dreamvacation.h \
     global.h \
     heap.h \
     list.h \
@@ -51,6 +53,7 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    dreamvacation.ui \
     mainwindow.ui \
     map.ui \
     modifysouvenirs.ui \

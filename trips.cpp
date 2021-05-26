@@ -58,12 +58,13 @@ void trips::on_pushButton_clicked()
     ui->listWidget->addItem(QString::fromStdString(output));
     ui->listWidget->addItem(QString::fromStdString(""));
     ui->listWidget->addItem(QString::fromStdString("The order the stadiums are visited:"));
-    vector<string> vvvv = s.get_route();
-    for(unsigned long long i = 0;i < vvvv.size();i++){
-        ui->listWidget->addItem(QString::fromStdString(vvvv[i]));
+    v1 = s.get_route();
+    for(unsigned long long i = 0;i < v1.size();i++){
+        ui->listWidget->addItem(QString::fromStdString(v1[i]));
     }
     ui->listWidget->addItem(QString::fromStdString(""));
     ui->listWidget->addItem(QString::fromStdString("The total distance travelled: " + to_string(s.get_distance())));
+
 }
 
 
@@ -112,9 +113,9 @@ void trips::on_pushButton_2_clicked()
     ui->listWidget->addItem(QString::fromStdString(output));
     ui->listWidget->addItem(QString::fromStdString(""));
     ui->listWidget->addItem(QString::fromStdString("The order the stadiums are visited:"));
-    vector<string> vvvv = s.get_route();
-    for(unsigned long long i = 0;i < vvvv.size();i++){
-        ui->listWidget->addItem(QString::fromStdString(vvvv[i]));
+    v2 = s.get_route();
+    for(unsigned long long i = 0;i < v2.size();i++){
+        ui->listWidget->addItem(QString::fromStdString(v2[i]));
     }
     ui->listWidget->addItem(QString::fromStdString(""));
     ui->listWidget->addItem(QString::fromStdString("The total distance travelled: " + to_string(s.get_distance())));
@@ -167,11 +168,37 @@ void trips::on_pushButton_3_clicked()
     ui->listWidget->addItem(QString::fromStdString(output));
     ui->listWidget->addItem(QString::fromStdString(""));
     ui->listWidget->addItem(QString::fromStdString("The order the stadiums are visited:"));
-    vector<string> vvvv = s.get_route();
-    for(unsigned long long i = 0;i < vvvv.size();i++){
-        ui->listWidget->addItem(QString::fromStdString(vvvv[i]));
+    v4 = s.get_route();
+    for(unsigned long long i = 0;i < v4.size();i++){
+        ui->listWidget->addItem(QString::fromStdString(v4[i]));
     }
     ui->listWidget->addItem(QString::fromStdString(""));
     ui->listWidget->addItem(QString::fromStdString("The total distance travelled: " + to_string(s.get_distance())));
 
+}
+
+// show trip to all major stadiums
+void trips::on_pushButton_4_clicked()
+{
+    Map m;
+    m.set_list(v1);
+    m.setModal(true);
+    m.exec();
+}
+
+// show trip to all American stadiums
+void trips::on_pushButton_5_clicked()
+{
+    Map m;
+    m.set_list(v2);
+    m.setModal(true);
+    m.exec();
+}
+
+void trips::on_pushButton_6_clicked()
+{
+    Map m;
+    m.set_list(v4);
+    m.setModal(true);
+    m.exec();
 }

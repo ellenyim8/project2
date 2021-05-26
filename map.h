@@ -15,13 +15,14 @@ class Map : public QDialog
 public:
     explicit Map(QWidget *parent = nullptr);
     ~Map();
+    void set_list(const vector<string>& v);
 
 private:
     Ui::Map *ui;
 
 protected:
     void paintEvent(QPaintEvent *e);
-
+    vector<string> list;
 };
 
 #endif // MAP_H

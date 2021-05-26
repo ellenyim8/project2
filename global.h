@@ -38,4 +38,6 @@ struct Path{
 extern vector<pair<int,vector<string>>> MLSP;
 extern vector<vector<string>> ALSP;
 
+pair<string,QPoint> find_pos(const string& s);
+
 #endif // GLOBAL_H

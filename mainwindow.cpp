@@ -57,3 +57,13 @@ void MainWindow::on_pushButton_2_clicked()
     if (t.close())
         this->show();
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    dreamvacation d;
+    this->hide();
+    d.setModal(true);
+    d.exec();
+    if (d.close())
+        this->show();
+}

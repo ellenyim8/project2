@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>20</y>
+     <x>350</x>
+     <y>150</y>
      <width>211</width>
      <height>23</height>
     </rect>
@@ -31,7 +31,7 @@
     <rect>
      <x>50</x>
      <y>100</y>
-     <width>571</width>
+     <width>281</width>
      <height>351</height>
     </rect>
    </property>
@@ -39,8 +39,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>50</y>
+     <x>340</x>
+     <y>210</y>
      <width>231</width>
      <height>23</height>
     </rect>
@@ -52,14 +52,53 @@
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>50</y>
+     <x>340</x>
+     <y>270</y>
      <width>231</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Trips to all the National league stadiums</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>150</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Map</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>210</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Map</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>270</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Map</string>
    </property>
   </widget>
  </widget>

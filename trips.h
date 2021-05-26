@@ -5,7 +5,7 @@
 #include "Dijkstra.h"
 #include "designtrip.h"
 #include "global.h"
-
+#include "map.h"
 namespace Ui {
 class trips;
 }
@@ -25,8 +25,17 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
+
 private:
     Ui::trips *ui;
+    vector<string> v1;
+    vector<string> v2;
+    vector<string> v4;
 };
 
 #endif // TRIPS_H
