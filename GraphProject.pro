@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Dijkstra.cpp \
     admin.cpp \
+    checkdistance.cpp \
     date.cpp \
     designtrip.cpp \
     dreamvacation.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     Dijkstra.h \
     admin.h \
     binaryTree.h \
+    checkdistance.h \
     date.h \
     designtrip.h \
     dreamvacation.h \
@@ -55,6 +57,7 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    checkdistance.ui \
     dreamvacation.ui \
     mainwindow.ui \
     map.ui \
