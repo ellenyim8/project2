@@ -95,5 +95,8 @@ void ModifyStadium::on_stadiumConfirmedButton_accepted()
         national = true;
     else national = false;
     newStadium.set_national(national);
-
+    //need function to convert longitude and latitude to map coordinates
+    int xcoord = ui->longitudeLineEdit->text().toDouble();
+    int ycoord = ui->latitudeLineEdit->text().toDouble();
+    positions.push_back(make_pair(name,QPoint(xcoord,ycoord)));
 }
