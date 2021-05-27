@@ -104,6 +104,19 @@
     <string>Modify Souvenirs</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="stadium_button">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>90</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Modify Stadiums</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

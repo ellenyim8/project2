@@ -26,6 +26,7 @@ SOURCES += \
     mainwindow.cpp \
     map.cpp \
     modifysouvenirs.cpp \
+    modifystadium.cpp \
     souvenir.cpp \
     souvenircontainer.cpp \
     stadium.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     mainwindow.h \
     map.h \
     modifysouvenirs.h \
+    modifystadium.h \
     souvenir.h \
     souvenircontainer.h \
     stadium.h \
@@ -57,6 +59,7 @@ FORMS += \
     mainwindow.ui \
     map.ui \
     modifysouvenirs.ui \
+    modifystadium.ui \
     stadiumlists.ui \
     trips.ui
 
