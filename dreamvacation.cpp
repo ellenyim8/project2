@@ -49,8 +49,8 @@ void dreamvacation::on_pushButton_clicked()
         vector<string> v2;
         for(size_t j = 0;j < v.size();j++){
             for(int i =0;i < vec.size();i++){
-                if(i == v.at(j)-1)
-                    v2.push_back(vec.at(i));
+                if(i == v.at(j))
+                    v2.push_back(vec.at(i-1));
             }
         }
         int count = 0;
