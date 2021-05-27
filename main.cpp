@@ -6,8 +6,6 @@
 #include "heap.h"
 #include "Dijkstra.h"
 #include <QFile>
-#include <QTextStream>
-
 using namespace std;
 Heap<Stadiums,StadiumsNameMin> MLS; // major league stadiums sorted by stadium names
 Heap<Stadiums,StringMin> MLS2;      // major league stadiums sorted by team names

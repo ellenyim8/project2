@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "modifysouvenirs.h"
-#include "modifystadium.h"
+
 namespace Ui {
 class Admin;
 }
@@ -20,12 +20,9 @@ private slots:
     void on_login_clicked();
     void on_modify_souvenirs_clicked();
 
-    void on_stadium_button_clicked();
-
 private:
     Ui::Admin *ui;
     ModifySouvenirs* ms;
-    ModifyStadium* modifyStadium;
     SouvenirContainer svc;
 };
 

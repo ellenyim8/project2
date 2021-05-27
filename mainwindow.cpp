@@ -67,3 +67,13 @@ void MainWindow::on_pushButton_3_clicked()
     if (d.close())
         this->show();
 }
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    checkdistance c;
+    this->hide();
+    c.setModal(true);
+    c.exec();
+    if (c.close())
+        this->show();
+}
