@@ -17,7 +17,6 @@ Admin::Admin(QWidget *parent) :
     ui->title->hide();
     ui->modify_souvenirs->hide();
     ui->stadium_button->hide();
-
 }
 
 /****************************************************
@@ -58,6 +57,7 @@ void Admin::on_login_clicked()
         ui->title->show();
         ui->modify_souvenirs->show();
         ui->stadium_button->show();
+
         ui->usernameLabel->hide();
         ui->usernameInput->hide();
         ui->passwordLabel->hide();
@@ -89,4 +89,10 @@ void Admin::on_stadium_button_clicked()
     modifyStadium = new ModifyStadium(nullptr);
     modifyStadium->setModal(true);
     modifyStadium->show();
+}
+
+void Admin::on_close_clicked()
+{
+    ui->~Admin();
+    Admin::close();
 }

@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "modifysouvenirs.h"
 #include "admin.h"
 #include "map.h"
 #include "global.h"
@@ -38,7 +37,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Admin* administrator;
-
 };
 
 
