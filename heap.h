@@ -2,10 +2,12 @@
 #define HEAP_H
 #include <iostream>
 #include <cassert>
+#include <QPainter>
+#include <sstream>
 //using namespace std;
 struct Stadiums{
     Stadiums(){}
-    Stadiums(std::string sn,std::string tn,std::string ad,std::string csz,std::string bon,std::string d,std::string c){
+    Stadiums(std::string sn,std::string tn,std::string ad,std::string csz,std::string bon,std::string d,std::string c,std::string gs,std::string pos){
         Stadium_Name = sn;
         Team_Name = tn;
         address = ad;
@@ -13,6 +15,15 @@ struct Stadiums{
         Box_Office_Num = bon;
         Date_Opened = d;
         Seating_Capacity = c;
+        surface = gs;
+        std::stringstream ss(pos);
+        std::vector<int> vec;
+        int num;
+        while(ss >> num)
+            vec.push_back(num);
+        position.setX(vec[0]);
+        position.setY(vec[1]);
+
     }
     std::string Stadium_Name;
     std::string Team_Name;
@@ -21,6 +32,8 @@ struct Stadiums{
     std::string Box_Office_Num;
     std::string Date_Opened;
     std::string Seating_Capacity;
+    std::string surface;
+    QPoint position;
 
     friend std::ostream& operator<<(std::ostream& os,const Stadiums& s){
         os << s.Stadium_Name << "\n";
@@ -30,6 +43,7 @@ struct Stadiums{
         os << s.Box_Office_Num << "\n";
         os << s.Date_Opened << "\n";
         os << s.Seating_Capacity << "\n";
+        os << s.surface << "\n";
         return os;
     }
 };
@@ -78,6 +92,7 @@ class Heap {                           			// heap interface
         bool is_empty() const;
         void print_preorder(int position = 0);
         bool contains(std::string stadium_name);
+        E find_element(std::string name);
 
     private:									//place any private member functions
         void expand();							//resize the array
@@ -425,5 +440,14 @@ bool Heap<E,C>::contains(std::string stadium_name)
             return true;
     }
     return false;
+}
+
+template <typename E, typename C>
+E Heap<E,C>::find_element(std::string name)
+{
+    for(int i = 0;i < _size;i++){
+        if(_elements[i].Stadium_Name == name)
+            return _elements[i];
+    }
 }
 #endif // HEAP_H

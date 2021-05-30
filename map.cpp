@@ -36,25 +36,28 @@ void Map::paintEvent(QPaintEvent *e)
     linepen.setWidth(2);
 
 
-
-    for(size_t i = 0;i < positions.size();i++){        
-        if(ALS.contains(positions[i].first)){
-            painter.setPen(paintpen1);
-        }
-        else{
-            painter.setPen(paintpen);
-        }
-        painter.drawPoint(positions[i].second);
-        painter.drawText(positions[i].second,QString::fromStdString(positions[i].first));
+    Heap<Stadiums,StringMin> h2 = ALS;
+    for(int i = 0;i < ALS.size();i++){
+        painter.setPen(paintpen1);
+        painter.drawPoint(h2.peek().position);
+        painter.drawText(h2.peek().position,QString::fromStdString(h2.peek().Stadium_Name));
+        h2.remove();
     }
 
+    Heap<Stadiums,StringMin> h3 = NLS;
+    for(int i = 0;i < NLS.size();i++){
+        painter.setPen(paintpen);
+        painter.drawPoint(h3.peek().position);
+        painter.drawText(h3.peek().position,QString::fromStdString(h3.peek().Stadium_Name));
+        h3.remove();
+    }
 
     painter.setPen(linepen);
     if(!list.empty()){
         for(unsigned long long i = 0;i < list.size()-1;i++){
-            pair<string,QPoint> p1 = find_pos(list[i]);
-            pair<string,QPoint> p2 = find_pos(list[i+1]);
-            painter.drawLine(p1.second,p2.second);
+            QPoint p1 = MLS.find_element(list[i]).position;
+            QPoint p2 = MLS.find_element(list[i+1]).position;
+            painter.drawLine(p1,p2);
         }
     }
 

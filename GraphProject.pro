@@ -28,6 +28,9 @@ SOURCES += \
     map.cpp \
     modifysouvenirs.cpp \
     modifystadium.cpp \
+    purchase.cpp \
+    purchase_report.cpp \
+    purchasecontainer.cpp \
     souvenir.cpp \
     souvenircontainer.cpp \
     stadium.cpp \
@@ -49,6 +52,9 @@ HEADERS += \
     map.h \
     modifysouvenirs.h \
     modifystadium.h \
+    purchase.h \
+    purchase_report.h \
+    purchasecontainer.h \
     souvenir.h \
     souvenircontainer.h \
     stadium.h \
@@ -63,6 +69,7 @@ FORMS += \
     map.ui \
     modifysouvenirs.ui \
     modifystadium.ui \
+    purchase_report.ui \
     stadiumlists.ui \
     trips.ui
 

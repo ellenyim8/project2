@@ -48,11 +48,12 @@ void dreamvacation::on_pushButton_clicked()
         shortestTrip s;
         vector<string> v2;
         for(size_t j = 0;j < v.size();j++){
-            for(int i =0;i < vec.size();i++){
+            for(int i =0;i <= vec.size();i++){
                 if(i == v.at(j))
                     v2.push_back(vec.at(i-1));
             }
         }
+
         int count = 0;
         string name = v2.at(count);
         ui->listWidget_2->addItem(QString::fromStdString("Starting from " + name));
@@ -99,7 +100,6 @@ void dreamvacation::on_pushButton_clicked()
         ui->listWidget_2->addItem(QString::fromStdString(""));
         ui->listWidget_2->addItem(QString::fromStdString("The total distance travelled: " + to_string(s.get_distance())));
     }
-
 }
 
 void dreamvacation::on_pushButton_2_clicked()
