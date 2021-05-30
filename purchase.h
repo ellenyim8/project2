@@ -4,11 +4,8 @@
 #include <string>
 #include <QTextStream>
 
-#include "souvenircontainer.h"
+#include "global.h"
 #include "souvenir.h"
-#include "heap.h"
-#include "stadium.h"
-
 
 class Purchase
 {
@@ -18,7 +15,9 @@ public:
     ******************/
     Purchase();
     Purchase(const Purchase& p);
-    Purchase(string, double, int);
+    Purchase(std::string item,  // IN - souvenir name
+             double price,      // IN - price of souvenir
+             int quantity);     // IN - # of souvenirs bought
 
     /***************
      ** MUTATORS **
@@ -31,20 +30,24 @@ public:
     /***************
      ** ACCESSORS **
     ***************/
-    std::string getSouvenir() const;
+    std::string getSouvenirName() const;
     double getPrice() const;
     int getQuantity() const;
-    double getTotalCost() const;        // get total cost for purchase of souvenir
-    bool operator ==(const Purchase& p);
-//    string get_souvenir_name(string sv) const;
-//    int get_souvenir_price(string sv) const;
-//    double get_total(string sv) const;
+    double getTotalForSouvenir() const;
+    bool operator ==(const Purchase& p) const;
 
 private:
     std::string souvenir_name;
-    double _price;
-    int _quantity;          // how many souvenir is purchased
-
+    double price;
+    int quantity;
 };
+
+/*
+Souvenir s1("Baseball bat", 35.35);
+Souvenir s2("Baseball cap", 25.99);
+Souvenir s3("Team pennant", 12.99);
+Souvenir s4("Autographed baseball", 19.99);
+
+*/
 
 #endif // PURCHASE_H

@@ -1,9 +1,13 @@
 #ifndef PURCHASECONTAINER_H
 #define PURCHASECONTAINER_H
 #include "purchase.h"
-//#include "souvenircontainer.h"
-//#include "heap.h"
-//#include "stadium.h"
+#include "souvenircontainer.h"
+#include "global.h"
+
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QFile>
+#include <fstream>
 
 
 class PurchaseContainer
@@ -13,8 +17,8 @@ public:
      ** CONSTRUCTORS **
     ******************/
     PurchaseContainer();
-    PurchaseContainer(unsigned int size);
-    PurchaseContainer(unsigned int size,
+    PurchaseContainer(int size);
+    PurchaseContainer(int size,
                       const Purchase& initial);
     PurchaseContainer(const PurchaseContainer& pc);
     ~PurchaseContainer();
@@ -22,14 +26,14 @@ public:
     /***************
      ** ACCESSORS **
     ***************/
-    unsigned int capacity() const;
-    unsigned int size() const;
+    int capacity() const;
+    int size() const;
     bool empty() const;
-    Purchase& operator[](unsigned int index) const;
+    Purchase& operator[](int index) const;
 
     double getTotal() const;
-    int find(const Purchase& p) const;
-    int find(std::string name) const;
+    int find(const Purchase& p) const;  // purchase to search for
+    int find(std::string name) const;   // purchase to search for
     int getSouvenirQuantity(std::string name) const;
     bool contains(Purchase& p) const;
     Purchase* begin() const {return &list[0];}
@@ -39,7 +43,9 @@ public:
      ** MUTATORS **
     ***************/
     void push_back(const Purchase& p);
-    //void push_back(QWidget* parent, const Purchase& p, SouvenirContainer& sc);
+    void push_back(QWidget* parent,
+                   const Purchase& p,
+                   SouvenirContainer& sc);
     void pop_back();
     void remove(const Purchase& p);
 
@@ -47,19 +53,19 @@ public:
     void set_capacity(int cap);
     PurchaseContainer& operator =(const PurchaseContainer& p);
 
-    void reserve(unsigned int cap);
-    void resize(unsigned int size);
+    void reserve(int cap);
+    void resize(int size);
     void clear();
 
-    //bool readFile(QWidget* parent,
-     //             std::string input,
-     //             SouvenirContainer& sc);
+    bool readFile(QWidget* parent,
+                  std::string input,
+                  SouvenirContainer& sc);
     void readFile(std::string name);
     void outFile(std::string name);
 
 private:
-    unsigned int _size;     // IN- allocated size of container
-    unsigned int _capacity; // IN- size of container
+    int _size;              // IN- allocated size of container
+    int _capacity;          // IN- size of container
     Purchase *list;         // IN- array of purchases
 
 };

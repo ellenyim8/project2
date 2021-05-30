@@ -1,41 +1,33 @@
 #include "purchase.h"
 
-/***********************************************
- * Purchase()
- *  CTOR; default ctor, initialize class
- *  attributes
- *  Parameters: none
- *  Returns: none
-***********************************************/
 Purchase::Purchase()
 {
     souvenir_name = "";
-    _price = 0.0;
-    _quantity = 0;
+    price = 0.0;
+    quantity = 0;
 }
 
 Purchase::Purchase(const Purchase& p)
 {
     this->souvenir_name = p.souvenir_name;
-    this->_price = p._price;
-    this->_quantity = p._quantity;
+    this->price = p.price;
+    this->quantity = p.quantity;
 }
 
-Purchase::Purchase(std::string name, double price, int quantity)
+Purchase::Purchase(std::string item,    // IN - souvenir name
+                   double price,        // IN - price of souvenir
+                   int quantity)        // IN - number of souvenirs bought
 {
-    souvenir_name = name;
-    this->_price = price;
-    this->_quantity = quantity;
+    this->souvenir_name = item;
+    this->price = price;
+    this->quantity = quantity;
 }
 
-Purchase& Purchase::operator=(const Purchase &p)
+Purchase& Purchase::operator=(const Purchase& p)
 {
-    if (this != &p)
-    {
-        this->souvenir_name = p.souvenir_name;
-        this->_price = p._price;
-        this->_quantity = p._quantity;
-    }
+    this->souvenir_name = p.souvenir_name;
+    this->price = p.price;
+    this->quantity = p.quantity;
 
     return *this;
 }
@@ -54,48 +46,47 @@ bool Purchase::setPrice(double price)
     if (price < 0)
         return false;
 
-    this->_price = price;
+    this->price = price;
     return true;
 }
 
 bool Purchase::setQuantity(int quantity)
 {
-    if (_quantity < 0)
+    if (quantity < 0)
         return false;
 
-    _quantity = quantity;
+    this->quantity = quantity;
     return true;
 }
 
-std::string Purchase::getSouvenir() const
+
+std::string Purchase::getSouvenirName() const
 {
-    return souvenir_name;
+    return this->souvenir_name;
 }
 
 double Purchase::getPrice() const
 {
-    return _price;
+    return this->price;
 }
 
 int Purchase::getQuantity() const
 {
-    return _quantity;
+    return this->quantity;
 }
 
-double Purchase::getTotalCost() const
+double Purchase::getTotalForSouvenir() const
 {
-    double total;
-    total = _price * _quantity;
-    return total;
+    return (this->price * this->quantity);
 }
 
-bool Purchase::operator==(const Purchase &p)
+bool Purchase::operator==(const Purchase &p) const
 {
-    if (p.getSouvenir() == this->souvenir_name &&
-            p.getPrice() == this->_price &&
-            p.getQuantity() == this->_quantity)
+    if (p.getSouvenirName() == this->souvenir_name &&
+        p.getPrice() == this->price &&
+        p.getQuantity() == this->getQuantity())
         return true;
 
-    return false;
+    else
+        return false;
 }
-

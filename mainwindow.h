@@ -9,6 +9,8 @@
 #include "trips.h"
 #include "dreamvacation.h"
 #include "checkdistance.h"
+#include "purchase_report.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,14 +28,15 @@ private slots:
 
     void on_Map_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();       // show teams list
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_2_clicked();     // trips
 
-    void on_pushButton_3_clicked();
+    void on_pushButton_3_clicked();     // plan a dream vacation
 
-    void on_pushButton_4_clicked();
+    void on_pushButton_4_clicked();     // check distances b/w stadiums
 
+    void on_pushButton_5_clicked();     // souvenir purchases report
 private:
     Ui::MainWindow *ui;
     Admin* administrator;

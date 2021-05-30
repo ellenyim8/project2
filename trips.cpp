@@ -195,41 +195,11 @@ void trips::on_pushButton_5_clicked()
     m.exec();
 }
 
+// show trip to all national stadiums
 void trips::on_pushButton_6_clicked()
 {
     Map m;
     m.set_list(v4);
     m.setModal(true);
     m.exec();
-}
-
-void trips::on_reportSubmit_clicked()
-{
-    PurchaseContainer pc;
-    Purchase p("Baseball bat", 35.35, 1);
-    pc.push_back(p);
-    ui->listWidget->clear();
-
-    ui->listWidget->addItem(QString::fromStdString("Purchase report for "));
-
-    if (ui->majorcheckBox->isChecked())
-    {
-        ui->listWidget->addItem(QString::fromStdString("Trip Purchases from Major League Stadiums: "));
-
-        ui->listWidget->addItem(QString::fromStdString(p.getSouvenir())
-                                + QString::number(p.getPrice()) + QString::fromStdString(" ")
-                                + QString::number(p.getQuantity()));
-        ui->listWidget->addItem(QString::fromStdString("Total: ")
-                                + QString::number(pc.getTotal()));
-    }
-    else if (ui->americancheckBox->isChecked())
-    {
-        ui->listWidget->addItem(QString::fromStdString("Trip Purchases from American League Stadiums: "));
-        ui->listWidget->addItem(QString::fromStdString(""));
-    }
-    else
-    {
-        ui->listWidget->addItem(QString::fromStdString("Trip Purchases from National League Stadiums: "));
-        ui->listWidget->addItem(QString::fromStdString(""));
-    }
 }

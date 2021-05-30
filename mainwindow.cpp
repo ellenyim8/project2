@@ -77,3 +77,13 @@ void MainWindow::on_pushButton_4_clicked()
     if (c.close())
         this->show();
 }
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    purchase_report p;
+    this->hide();
+    p.setModal(true);
+    p.exec();
+    if (p.close())
+        this->show();
+}

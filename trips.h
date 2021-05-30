@@ -7,8 +7,6 @@
 #include "global.h"
 #include "map.h"
 
-#include "purchasecontainer.h"
-
 namespace Ui {
 class trips;
 }
@@ -33,8 +31,6 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_6_clicked();
-
-    void on_reportSubmit_clicked();
 
 private:
     Ui::trips *ui;
