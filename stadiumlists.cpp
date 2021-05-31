@@ -104,3 +104,58 @@ void stadiumlists::on_pushButton_4_clicked()
         h2.remove();
     }
 }
+
+// Stadiums that have grass surface sorted by team name
+void stadiumlists::on_pushButton_5_clicked()
+{
+    ui->listWidget->clear();
+    Heap<Stadiums,StringMin> h2 = MLS2;
+    Heap<Stadiums,StringMin> h3;
+    for(int i = 0;i < MLS2.size();i++){
+        if(h2.peek().surface == "Grass")
+            h3.insert(h2.peek());
+        h2.remove();
+    }
+    ui->listWidget->addItem(QString::fromStdString("Stadiums that have grass surface:"));
+    ui->listWidget->addItem(QString::fromStdString(""));
+    int j = h3.size();
+    string s1,s2;
+    for(int i = 0;i < j;i++){
+        s1 = "Stadium name: ";
+        s2 = "Team name: ";
+        s1.append(h3.peek().Stadium_Name);
+        s2.append(h3.peek().Team_Name);
+        ui->listWidget->addItem(QString::fromStdString(s1));
+        ui->listWidget->addItem(QString::fromStdString(s2));
+        ui->listWidget->addItem(QString::fromStdString(""));
+        h3.remove();
+    }
+}
+
+// Stadiums in chronological order
+void stadiumlists::on_pushButton_6_clicked()
+{
+    ui->listWidget->clear();
+    Heap<Stadiums,StringMin> h2 = MLS2;
+    Heap<Stadiums,DateMin> h3;
+    for(int i = 0;i < MLS2.size();i++){
+        h3.insert(h2.peek());
+        h2.remove();
+    }
+    ui->listWidget->addItem(QString::fromStdString("Stadiums in chronological order:"));
+    ui->listWidget->addItem(QString::fromStdString(""));
+    int j = h3.size();
+    string s1,s2,s3;
+    for(int i = 0;i < j;i++){
+        s1 = "Stadium name: ";
+        s2 = "Team name: ";
+        s1.append(h3.peek().Stadium_Name);
+        s2.append(h3.peek().Team_Name);
+        s3 = h3.peek().Date_Opened;
+        ui->listWidget->addItem(QString::fromStdString(s1));
+        ui->listWidget->addItem(QString::fromStdString(s2));
+        ui->listWidget->addItem(QString::fromStdString(s3));
+        ui->listWidget->addItem(QString::fromStdString(""));
+        h3.remove();
+    }
+}

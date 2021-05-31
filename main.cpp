@@ -16,6 +16,7 @@ Heap<Stadiums,StringMin> NLS;       // National league stadiums
 vector<pair<int,vector<string>>> MLSP;           // major league stadiums paths
 
 
+
 int main(int argc, char *argv[])
 {
     cout << "hello group!";
