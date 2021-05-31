@@ -31,6 +31,7 @@ SOURCES += \
     purchase.cpp \
     purchase_report.cpp \
     purchasecontainer.cpp \
+    randomstadium.cpp \
     souvenir.cpp \
     souvenircontainer.cpp \
     stadium.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     purchase.h \
     purchase_report.h \
     purchasecontainer.h \
+    randomstadium.h \
     souvenir.h \
     souvenircontainer.h \
     stadium.h \
@@ -70,6 +72,7 @@ FORMS += \
     modifysouvenirs.ui \
     modifystadium.ui \
     purchase_report.ui \
+    randomstadium.ui \
     stadiumlists.ui \
     trips.ui
 

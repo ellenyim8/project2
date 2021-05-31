@@ -146,6 +146,7 @@ class Heap {                           			// heap interface
         void print_preorder(int position = 0);
         bool contains(std::string stadium_name);
         E find_element(std::string name);
+        E get_element(int pos) const;
 
     private:									//place any private member functions
         void expand();							//resize the array
@@ -502,5 +503,11 @@ E Heap<E,C>::find_element(std::string name)
         if(_elements[i].Stadium_Name == name)
             return _elements[i];
     }
+}
+
+template <typename E, typename C>
+E Heap<E,C>::get_element(int pos) const
+{
+    return _elements[pos];
 }
 #endif // HEAP_H

@@ -118,6 +118,19 @@
      <string>Purchases Report</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>340</y>
+      <width>251</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Random baseball stadium</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -125,7 +138,7 @@
      <x>0</x>
      <y>0</y>
      <width>771</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

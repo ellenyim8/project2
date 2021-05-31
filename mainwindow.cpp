@@ -58,6 +58,7 @@ void MainWindow::on_pushButton_2_clicked()
         this->show();
 }
 
+// plan a dream vacation
 void MainWindow::on_pushButton_3_clicked()
 {
     dreamvacation d;
@@ -68,6 +69,7 @@ void MainWindow::on_pushButton_3_clicked()
         this->show();
 }
 
+// check distances b/w stadiums
 void MainWindow::on_pushButton_4_clicked()
 {
     checkdistance c;
@@ -78,6 +80,7 @@ void MainWindow::on_pushButton_4_clicked()
         this->show();
 }
 
+// souvenir purchases report
 void MainWindow::on_pushButton_5_clicked()
 {
     purchase_report p;
@@ -85,5 +88,16 @@ void MainWindow::on_pushButton_5_clicked()
     p.setModal(true);
     p.exec();
     if (p.close())
+        this->show();
+}
+
+// randomly access any baseball stadium
+void MainWindow::on_pushButton_6_clicked()
+{
+    randomstadium c;
+    this->hide();
+    c.setModal(true);
+    c.exec();
+    if (c.close())
         this->show();
 }

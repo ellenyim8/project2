@@ -10,6 +10,7 @@
 #include "dreamvacation.h"
 #include "checkdistance.h"
 #include "purchase_report.h"
+#include "randomstadium.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -37,6 +38,9 @@ private slots:
     void on_pushButton_4_clicked();     // check distances b/w stadiums
 
     void on_pushButton_5_clicked();     // souvenir purchases report
+
+    void on_pushButton_6_clicked();     // randomly access any baseball stadium
+
 private:
     Ui::MainWindow *ui;
     Admin* administrator;
