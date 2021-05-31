@@ -94,14 +94,12 @@ public:
     // Graph alorithm
     void print_path(int arr[], int size, int index,vector<string>& vec);
     void Dijstra(string start,vector<pair<int,vector<string>>>& vec);
-    void MST_Prim(string start);
-    void MST_Kruskal();
 
     // Graph construction
     void construct_graph();
 
 private:
-    lists<city> adj_list[30];    // list to store the graph
+    lists<city> adj_list[100];    // list to store the graph
     int size;                   // number of cities
 };
 
