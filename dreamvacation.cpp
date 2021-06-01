@@ -1,6 +1,14 @@
 #include "dreamvacation.h"
 #include "ui_dreamvacation.h"
 
+/****************************************************
+ * dreamvacation(QWidget *parent)
+ *  CTOR; sets up ui
+ * -------------------------------------------------
+ *  Preconditions: none
+ * -------------------------------------------------
+ *  Postconditions: dreamvacation window is set up
+****************************************************/
 dreamvacation::dreamvacation(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::dreamvacation)
@@ -19,11 +27,32 @@ dreamvacation::dreamvacation(QWidget *parent) :
     }
 }
 
+/****************************************************
+ * ~dreamvacation()
+ *  destructor; receives no parameters and returns
+ *  nothing
+ * -------------------------------------------------
+ *  Preconditions: none
+ * -------------------------------------------------
+ *  Postconditions: ui stops running
+****************************************************/
 dreamvacation::~dreamvacation()
 {
     delete ui;
 }
 
+/**********************************************************
+ * void on_pushButton_clicked()
+ *
+ *  Provide the capability for a baseball fan to plan his/her
+ *  dream vacation. Print the number of stadiums visited,
+ *  the order the stadiums are visited, and the total
+ *  distance travelled.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: New window is shown.
+**********************************************************/
 void dreamvacation::on_pushButton_clicked()
 {
     ui->listWidget_2->clear();
@@ -112,6 +141,15 @@ void dreamvacation::on_pushButton_clicked()
     }
 }
 
+/**********************************************************
+ * void on_pushButton_2_clicked()
+ *
+ *  Show the map that has the paths to the dream vacation.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: The map window is shown.
+**********************************************************/
 void dreamvacation::on_pushButton_2_clicked()
 {
     Map m;

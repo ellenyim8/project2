@@ -1,6 +1,14 @@
 #include "stadiumlists.h"
 #include "ui_stadiumlists.h"
 
+/****************************************************
+ * stadiumlists()
+ *  CTOR; sets up ui
+ * -------------------------------------------------
+ *  Preconditions: none
+ * -------------------------------------------------
+ *  Postconditions: stadiumlists window is set up
+****************************************************/
 stadiumlists::stadiumlists(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::stadiumlists)
@@ -8,11 +16,29 @@ stadiumlists::stadiumlists(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/****************************************************
+ * ~stadiumlists()
+ *  destructor; receives no parameters and returns
+ *  nothing
+ * -------------------------------------------------
+ *  Preconditions: none
+ * -------------------------------------------------
+ *  Postconditions: ui stops running
+****************************************************/
 stadiumlists::~stadiumlists()
 {
     delete ui;
 }
 
+/**********************************************************
+ * void on_pushButton_clicked()
+ *
+ *  Show all american league stadiums sorted by team name.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: Current window closed, main window shows.
+**********************************************************/
 // American League Stadiums sorted by team name
 void stadiumlists::on_pushButton_clicked()
 {
@@ -36,6 +62,15 @@ void stadiumlists::on_pushButton_clicked()
     }
 }
 
+/**********************************************************
+ * void on_pushButton_2_clicked()
+ *
+ *  Show all national league stadiums sorted by team name.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: Current window closed, main window shows.
+**********************************************************/
 // National League Stadiums sorted by team name
 void stadiumlists::on_pushButton_2_clicked()
 {
@@ -59,6 +94,15 @@ void stadiumlists::on_pushButton_2_clicked()
     }
 }
 
+/**********************************************************
+ * void on_pushButton_3_clicked()
+ *
+ *  Show all major league stadiums sorted by team name.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: Current window closed, main window shows.
+**********************************************************/
 // Major League Stadiums sorted by team name
 void stadiumlists::on_pushButton_3_clicked()
 {
@@ -82,6 +126,15 @@ void stadiumlists::on_pushButton_3_clicked()
     }
 }
 
+/**********************************************************
+ * void on_pushButton_4_clicked()
+ *
+ *  Show all major league stadiums sorted by stadium name.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: Current window closed, main window shows.
+**********************************************************/
 // Major League Stadiums sorted by Stadium name
 void stadiumlists::on_pushButton_4_clicked()
 {
@@ -105,6 +158,15 @@ void stadiumlists::on_pushButton_4_clicked()
     }
 }
 
+/**********************************************************
+ * void on_pushButton_5_clicked()
+ *
+ *  Show all Stadiums that have grass surface sorted by team name.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: Current window closed, main window shows.
+**********************************************************/
 // Stadiums that have grass surface sorted by team name
 void stadiumlists::on_pushButton_5_clicked()
 {
@@ -132,6 +194,15 @@ void stadiumlists::on_pushButton_5_clicked()
     }
 }
 
+/**********************************************************
+ * void on_pushButton_6_clicked()
+ *
+ *  Show all Stadiums in chronological order.
+ * --------------------------------------------------------
+ *  Pre-conditions: None.
+ * -------------------------------------------------------
+ *  Post-condition: Current window closed, main window shows.
+**********************************************************/
 // Stadiums in chronological order
 void stadiumlists::on_pushButton_6_clicked()
 {
