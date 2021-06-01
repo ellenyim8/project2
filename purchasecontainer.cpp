@@ -13,6 +13,13 @@ PurchaseContainer::PurchaseContainer()
     _capacity = 0;
 }
 
+/****************************************************
+ * PurchaseContainer()
+ *  CTOR; initializes ctor private members with given
+ *  parameterized size
+ *  Preconditions: size (IN: int)
+ *  Postcondition: initializes with given container size
+*****************************************************/
 PurchaseContainer::PurchaseContainer(int size)
 {
     _capacity = size;
@@ -20,6 +27,14 @@ PurchaseContainer::PurchaseContainer(int size)
     list = new Purchase[size];
 }
 
+/****************************************************
+ * PurchaseContainer()
+ *  CTOR; initializes ctor with given size and initialize
+ *  purchase object
+ *  Preconditions: none
+ *  Postcondition: initialized constructor with given
+ *  size and purchase object
+*****************************************************/
 PurchaseContainer::PurchaseContainer(int size, const Purchase& initial)
 {
     _size = size;
@@ -31,6 +46,13 @@ PurchaseContainer::PurchaseContainer(int size, const Purchase& initial)
     }
 }
 
+/****************************************************
+ * PurchaseContainer()
+ *  copy constructor
+ *  Preconditions: none
+ *  Postconditions: copies given purchase object to
+ *  private member
+*****************************************************/
 PurchaseContainer::PurchaseContainer(const PurchaseContainer& pc)
 {
     _size = pc._size;
@@ -42,6 +64,14 @@ PurchaseContainer::PurchaseContainer(const PurchaseContainer& pc)
     }
 }
 
+/****************************************************
+ * ~PurchaseContainer()
+ *  destructor; deletes the purchase list
+ * --------------------------------------------------
+ *  Parameters: none
+ * --------------------------------------------------
+ *  Returns: none
+*****************************************************/
 PurchaseContainer::~PurchaseContainer()
 {
     delete[] list;
