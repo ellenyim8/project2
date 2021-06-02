@@ -84,9 +84,10 @@ void Admin::on_modify_souvenirs_clicked()
 
 void Admin::on_stadium_button_clicked()
 {
+    ModifyStadium M;
     this->hide();
-
-    modifyStadium = new ModifyStadium(nullptr);
-    modifyStadium->setModal(true);
-    modifyStadium->show();
+    M.setModal(true);
+    M.exec();
+    if (M.close())
+        this->show();
 }

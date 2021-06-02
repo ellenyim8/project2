@@ -114,7 +114,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Modify Stadiums</string>
+    <string>Add Stadium</string>
    </property>
   </widget>
  </widget>

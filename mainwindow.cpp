@@ -18,10 +18,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_admin_clicked()
 {
+    Admin A;
     this->hide();
-    administrator = new Admin(nullptr);
-    administrator->setModal(true);
-    administrator->show();
+    A.setModal(true);
+    A.exec();
+    if (A.close())
+        this->show();
 }
 
 // show map button

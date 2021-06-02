@@ -78,9 +78,10 @@ void ModifyStadium::on_stadiumConfirmedButton_accepted()
         msg.exec();
         return;
     }
+    int capacity = 0;
     if (ui->capcityLineEdit->text().toStdString().size()!=0)
     {
-        int capacity = ui->capcityLineEdit->text().toInt();
+        capacity = ui->capcityLineEdit->text().toInt();
         newStadium.set_capacity(capacity);
     }
     else
@@ -95,8 +96,23 @@ void ModifyStadium::on_stadiumConfirmedButton_accepted()
         national = true;
     else national = false;
     newStadium.set_national(national);
-    //need function to convert longitude and latitude to map coordinates
-    int xcoord = ui->longitudeLineEdit->text().toDouble();
-    int ycoord = ui->latitudeLineEdit->text().toDouble();
+    double longitude = ui->longitudeLineEdit->text().toDouble();
+    double latitude = ui->latitudeLineEdit->text().toDouble();
+    int xcoord=0;
+    int ycoord=0;
+    if (latitude>100)//westcoast
+    {
+        xcoord=(-10.5*longitude)+438;
+        ycoord=(-22.5*latitude)+2981;
+    }
+    else //east coast
+    {
+        xcoord=(21.8*longitude)-78.3;
+        ycoord=(-0.377*latitude)+47.9;
+    }
     positions.push_back(make_pair(name,QPoint(xcoord,ycoord)));
+    if (national==true)
+        NLS.insert(Stadiums(name, team, street, city, phoneNo, " ", "capacity"));
+    else
+        ALS.insert(Stadiums(name, team, street, city, phoneNo, " ", "capacity"));
 }

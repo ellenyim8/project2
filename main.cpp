@@ -20,7 +20,6 @@ vector<pair<string,QPoint>> positions;  // store all the stadiums and their posi
 
 int main(int argc, char *argv[])
 {
-    cout << "hello group!";
     QApplication a(argc, argv);
     string Stadium_Name;
     string Team_Name;

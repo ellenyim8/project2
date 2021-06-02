@@ -24,7 +24,4 @@ private:
     string item;        // IN: souvenir item name
     double price;       // IN: souvenir price
 };
-
-
-
 #endif // SOUVENIR_H

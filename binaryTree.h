@@ -54,8 +54,6 @@ private:
     void copy(TreeNode<E> *&current, const TreeNode<E> *other);
     void inOrderList(vector<E>& itemList, TreeNode<E> *nodeptr);
 };
-
-
 template <typename E, typename C>
 BinaryTree<E, C>::BinaryTree(const BinaryTree<E, C>& rhs)
 {
@@ -255,8 +253,5 @@ void BinaryTree<E, C>::inOrderList(vector<E>& itemList)
 {
     inOrderItemList(itemList, root);
 }
-
-
-
 
 #endif // BINARYTREE_H
