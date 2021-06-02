@@ -2,6 +2,14 @@
 #include "ui_purchase_report.h"
 #include <algorithm>
 
+/****************************************************
+ * purchase_report(QWidget *parent)
+ *  Constructor; sets up ui
+ * --------------------------------------------------
+ *  Preconditions: none
+ * --------------------------------------------------
+ *  Postconditions: purchase_report window is set up
+*****************************************************/
 purchase_report::purchase_report(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::purchase_report)
@@ -9,26 +17,49 @@ purchase_report::purchase_report(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/****************************************************
+ * ~purchase_report()
+ *  destructor; deletes ui
+ * --------------------------------------------------
+ *  Preconditions: none
+ * --------------------------------------------------
+ *  Postcondition: ui stops running
+*****************************************************/
 purchase_report::~purchase_report()
 {
     delete ui;
 }
 
+/****************************************************
+ * void on_exit_clicked()
+ *  QWidget, if exit pushButton is clicked, then
+ *  destructor is called and closes purchase report
+ *  window
+ * --------------------------------------------------
+ *  Preconditions: none
+ * --------------------------------------------------
+ *  Postconditions: calls destructor and closes
+ *  purchase_report window
+*****************************************************/
 void purchase_report::on_exit_clicked()
 {
     ui->~purchase_report();
     purchase_report::close();
 }
 
+/****************************************************
+ * void on_submit_clicked()
+ *  QWidget; user selects one of two checkboxes and
+ *  hits submit to generate a purchase report
+ * --------------------------------------------------
+ *  Preconditions: one of checkboxes is checked
+ * --------------------------------------------------
+ *  Postconditions: Report is printed to screen
+*****************************************************/
 void purchase_report::on_submit_clicked()
 {
     ui->report->clear();
-
-    if (ui->checkBox_2->isChecked())    // if allSouvenir is checked
-    {
-        allSouvenirsReport();
-    }
-    else
+    if (ui->checkBox->isChecked())
     {
         std::string souvenirName = ui->name->text().toStdString();
         if (!all_souvenirs->contains(souvenirName))
@@ -38,8 +69,23 @@ void purchase_report::on_submit_clicked()
         }
         singleSouvenirReport(souvenirName);
     }
+    else
+    {
+        allSouvenirsReport();
+    }
+
 }
 
+/****************************************************
+ * void singleSouvenirReport(string s)
+ *  generates a single souvenir report based on the
+ *  given string
+ * --------------------------------------------------
+ *  Preconditions: takes a existing souvenir
+ * --------------------------------------------------
+ *  Postconditions: outputs a report of given
+ *  souvenir
+*****************************************************/
 void purchase_report::singleSouvenirReport(std::string s)
 {
     ui->report->clear();
@@ -81,11 +127,21 @@ void purchase_report::singleSouvenirReport(std::string s)
     ui->report->setText(report);
 }
 
+/****************************************************
+ * void allSouvenirReport()
+ *  generate a report for purchased souvenirs
+ * --------------------------------------------------
+ *  Preconditions: none
+ * --------------------------------------------------
+ *  Postconditions: a report is given for all
+ *  purchased souvenirs
+*****************************************************/
 void purchase_report::allSouvenirsReport()
 {
     ui->report->clear();
     PurchaseContainer purchases;
-    for (size_t i=0; i<all_purchases->size(); i++)
+
+    for (int i=0; i<all_purchases->size(); i++)
     {
         int index = purchases.find((*all_purchases)[i].getSouvenirName());
         if (index == -1)
@@ -104,17 +160,18 @@ void purchase_report::allSouvenirsReport()
         return;
     }
 
-    //std::sort(all_souvenirs->begin(), all_souvenirs->end());
-
     QString outs = "------------Report------------\n\n";
     int bought = 0;
-    for (size_t i=0; i<all_souvenirs->get_souvenirs_count(); i++)
+    for (int i=0; i<all_souvenirs->get_souvenirs_count(); i++)
     {
         int index = purchases.find((*all_souvenirs)[i].get_item());
         index != -1 ? bought = purchases[index].getQuantity() : bought = 0;
+        double price = ((*all_souvenirs)[i]).get_price();
 
         outs += "Souvenir: ";
         outs += QString::fromStdString((*all_souvenirs)[i].get_item());
+        outs += "Price: ";
+        outs += QString::fromStdString(to_string(price));
         outs += "\n";
         outs += "Souvenir quantity bought: ";
         outs += QString::fromStdString(to_string(bought));
@@ -126,5 +183,6 @@ void purchase_report::allSouvenirsReport()
     outs += "\n\n";
     outs += "----------End of report-------------\n";
 
-    ui->report->setText(outs);
+    ui->report->setPlainText(outs);
+
 }

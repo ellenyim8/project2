@@ -17,8 +17,6 @@ class purchase_report : public QDialog
 
 public:
     explicit purchase_report(QWidget *parent = nullptr);
-    //purchase_report(QWidget *parent, PurchaseContainer *all_purchases,
-    //                SouvenirContainer *all_souvenirs);
     ~purchase_report();
 
 private slots:
