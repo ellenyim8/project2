@@ -17,6 +17,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->title->show();
     ui->admin->show();
+    QPixmap pix(":/resource/image/baseball.jpg");
+    int w = ui->label->width();
+    int h = ui->label->height();
+    ui->label->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+
 }
 
 /****************************************************
