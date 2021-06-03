@@ -2,17 +2,41 @@
 #define HEAP_H
 #include <iostream>
 #include <cassert>
+#include <QPainter>
+#include <sstream>
 //using namespace std;
+
+
 struct Stadiums{
     Stadiums(){}
-    Stadiums(std::string sn,std::string tn,std::string ad,std::string csz,std::string bon,std::string d,std::string c){
+    Stadiums(std::string sn,std::string tn,std::string ad,std::string csz,std::string bon,std::string d,std::string c,std::string gs,std::string pos){
         Stadium_Name = sn;
         Team_Name = tn;
         address = ad;
         City_State_Zip = csz;
         Box_Office_Num = bon;
         Date_Opened = d;
+        std::stringstream ss1(d);
+        std::vector<std::string> str;
+        std::string stri;
+        while(ss1 >> stri)
+            str.push_back(stri);
+        str.at(3) = str.at(3).substr(0,str.at(3).length()-1);
+        month = find_month(str.at(2));
+        std::stringstream ss2(str.at(3));
+        ss2 >> day;
+        std::stringstream ss3(str.at(4));
+        ss3 >> year;
         Seating_Capacity = c;
+        surface = gs;
+        std::stringstream ss(pos);
+        std::vector<int> vec;
+        int num;
+        while(ss >> num)
+            vec.push_back(num);
+        position.setX(vec[0]);
+        position.setY(vec[1]);
+
     }
     std::string Stadium_Name;
     std::string Team_Name;
@@ -20,8 +44,41 @@ struct Stadiums{
     std::string City_State_Zip;
     std::string Box_Office_Num;
     std::string Date_Opened;
+    int month;
+    int day;
+    int year;
     std::string Seating_Capacity;
+    std::string surface;
+    QPoint position;
 
+    int find_month(std::string m){
+        if(m == "January")
+            return 1;
+        if(m == "February")
+            return 2;
+        if(m == "March")
+            return 3;
+        if(m == "April")
+            return 4;
+        if(m == "May")
+            return 5;
+        if(m == "June")
+            return 6;
+        if(m == "July")
+            return 7;
+        if(m == "August")
+            return 8;
+        if(m == "September")
+            return 9;
+        if(m == "October")
+            return 10;
+        if(m == "November")
+            return 11;
+        if(m == "December")
+            return 12;
+        else
+            return 0;
+    }
     friend std::ostream& operator<<(std::ostream& os,const Stadiums& s){
         os << s.Stadium_Name << "\n";
         os << s.Team_Name << "\n";
@@ -30,6 +87,7 @@ struct Stadiums{
         os << s.Box_Office_Num << "\n";
         os << s.Date_Opened << "\n";
         os << s.Seating_Capacity << "\n";
+        os << s.surface << "\n";
         return os;
     }
 };
@@ -48,6 +106,15 @@ public:
     }
 };
 
+class DateMin{
+public:
+    bool operator()(Stadiums & s1,Stadiums& s2){
+        if(s1.year < s2.year) return true;
+        if(s1.year == s2.year && s1.month < s2.month) return true;
+        if(s1.year == s2.year && s1.month == s2.month && s1.day < s2.day) return true;
+        return false;
+    }
+};
 
 template <typename E, typename C>               // element and comparator
 class Heap {                           			// heap interface
@@ -78,6 +145,8 @@ class Heap {                           			// heap interface
         bool is_empty() const;
         void print_preorder(int position = 0);
         bool contains(std::string stadium_name);
+        E find_element(std::string name);
+        E get_element(int pos) const;
 
     private:									//place any private member functions
         void expand();							//resize the array
@@ -425,5 +494,20 @@ bool Heap<E,C>::contains(std::string stadium_name)
             return true;
     }
     return false;
+}
+
+template <typename E, typename C>
+E Heap<E,C>::find_element(std::string name)
+{
+    for(int i = 0;i < _size;i++){
+        if(_elements[i].Stadium_Name == name)
+            return _elements[i];
+    }
+}
+
+template <typename E, typename C>
+E Heap<E,C>::get_element(int pos) const
+{
+    return _elements[pos];
 }
 #endif // HEAP_H

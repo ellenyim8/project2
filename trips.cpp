@@ -1,6 +1,13 @@
 #include "trips.h"
 #include "ui_trips.h"
-
+/****************************************************
+ * trips()
+ *  CTOR; sets up ui
+ * -------------------------------------------------
+ *  Preconditions: none
+ * -------------------------------------------------
+ *  Postconditions: trips window is set up
+****************************************************/
 trips::trips(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::trips)
@@ -8,11 +15,31 @@ trips::trips(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/****************************************************
+ * ~trips()
+ *  destructor; receives no parameters and returns
+ *  nothing
+ * -------------------------------------------------
+ *  Preconditions: none
+ * -------------------------------------------------
+ *  Postconditions: ui stops running
+****************************************************/
 trips::~trips()
 {
     delete ui;
 }
 
+/**********************************************************
+ * void on_pushButton_clicked()
+ *
+ *  Push the button will show the trip to all the major
+ *  league stadiums
+ * --------------------------------------------------------
+ *  Pre-conditions: None
+ * -------------------------------------------------------
+ *  Post-condition: Current window is close, main window
+ *  shows.
+**********************************************************/
 // trips to all the major league stadiums
 void trips::on_pushButton_clicked()
 {
@@ -67,7 +94,17 @@ void trips::on_pushButton_clicked()
 
 }
 
-
+/**********************************************************
+ * void on_pushButton_2_clicked()
+ *
+ *  Push the button will show the trip to all the American
+ *  league stadiums
+ * --------------------------------------------------------
+ *  Pre-conditions: None
+ * -------------------------------------------------------
+ *  Post-condition: Current window is close, main window
+ *  shows.
+**********************************************************/
 // trips to all the American league stadiums
 void trips::on_pushButton_2_clicked()
 {
@@ -123,6 +160,17 @@ void trips::on_pushButton_2_clicked()
 
 }
 
+/**********************************************************
+ * void on_pushButton_3_clicked()
+ *
+ *  Push the button will show the trip to all the National
+ *  league stadiums
+ * --------------------------------------------------------
+ *  Pre-conditions: None
+ * -------------------------------------------------------
+ *  Post-condition: Current window is close, main window
+ *  shows.
+**********************************************************/
 // trips to all the National league stadiums
 void trips::on_pushButton_3_clicked()
 {
@@ -177,6 +225,17 @@ void trips::on_pushButton_3_clicked()
 
 }
 
+/**********************************************************
+ * void on_pushButton_4_clicked()
+ *
+ *  Push the button will show the map to all the major
+ *  league stadiums
+ * --------------------------------------------------------
+ *  Pre-conditions: None
+ * -------------------------------------------------------
+ *  Post-condition: Current window is close, main window
+ *  shows.
+**********************************************************/
 // show trip to all major stadiums
 void trips::on_pushButton_4_clicked()
 {
@@ -186,6 +245,17 @@ void trips::on_pushButton_4_clicked()
     m.exec();
 }
 
+/**********************************************************
+ * void on_pushButton_5_clicked()
+ *
+ *  Push the button will show the map to all the American
+ *  league stadiums
+ * --------------------------------------------------------
+ *  Pre-conditions: None
+ * -------------------------------------------------------
+ *  Post-condition: Current window is close, main window
+ *  shows.
+**********************************************************/
 // show trip to all American stadiums
 void trips::on_pushButton_5_clicked()
 {
@@ -195,6 +265,18 @@ void trips::on_pushButton_5_clicked()
     m.exec();
 }
 
+/**********************************************************
+ * void on_pushButton_6_clicked()
+ *
+ *  Push the button will show the map to all the National
+ *  league stadiums
+ * --------------------------------------------------------
+ *  Pre-conditions: None
+ * -------------------------------------------------------
+ *  Post-condition: Current window is close, main window
+ *  shows.
+**********************************************************/
+// show trip to all national stadiums
 void trips::on_pushButton_6_clicked()
 {
     Map m;

@@ -236,8 +236,8 @@ void graph::Dijstra(string start,vector<pair<int,vector<string>>>& vec)
 {
     int max_num = 99999;    // this is the infinity figure
     lists<int> shortest;     // this list stores shortest path
-    int p[30];              // this is the previous city list
-    int c[30];              // this is cost list
+    int p[size];              // this is the previous city list
+    int c[size];              // this is cost list
     int indexOfStart = indexOf(start);
     c[indexOfStart] = 0;
 
@@ -249,7 +249,7 @@ void graph::Dijstra(string start,vector<pair<int,vector<string>>>& vec)
             c[i] = max_num;
     }
 
-    while(shortest.size() != 30)
+    while(shortest.size() != size)
     {
         int smallest = 0;
         int temp = max_num;
@@ -290,126 +290,6 @@ void graph::Dijstra(string start,vector<pair<int,vector<string>>>& vec)
         v.push_back(adj_list[i].at(0).name);
         vec.push_back(make_pair(c[i],v));
     }
-}
-
-/************************************************************
-*
-* MST_Prim(string start)
-*___________________________________________________________
-* This function finds MST using prim's algorithm
-*___________________________________________________________
-* INPUTS:
-*   string start    -   starting point
-*
-* OUTPUTS:
-*   None
-*
-*************************************************************/
-void graph::MST_Prim(string start)
-{
-    // this is basically same as Dijstra algorithm except for only a couple
-    //  changes
-    int max_num = 99999;
-    lists<int> shortest;
-    int p[12];
-    int c[12];
-    int indexOfStart = indexOf(start);
-    c[indexOfStart] = 0;
-    for(int i=0; i<size; i++)
-    {
-        p[i] = -1;
-        if(i != indexOfStart)
-            c[i] = max_num;
-    }
-
-    while(shortest.size() != 12)
-    {
-        int smallest = 0;
-        int temp = max_num;
-        int j, cost_s_to_j;
-        for(int i=0; i<size; i++)
-            if(c[i] < temp && !shortest.find(i))
-            {
-                temp = c[i];
-                smallest = i;
-            }
-        shortest.push_back(smallest);
-
-        for(int i=1; i<adj_list[smallest].size(); i++)
-        {
-            // unlike Dijstra, no need to update cost list, simply record all
-            //  the shortest path
-            j = indexOf(adj_list[smallest].at(i).name);
-            if(!shortest.find(j))
-            {
-                cost_s_to_j = cost_of(adj_list[smallest].at(0).name,
-                                          adj_list[j].at(0).name);
-                if(cost_s_to_j < c [j])
-                {
-                    c[j] = cost_s_to_j;
-                    p[j] = smallest;
-                }
-            }
-        }
-    }
-
-    // prints out the MST
-    for(int i=1; i<size; i++)
-    {
-        string city_1 = adj_list[shortest.at(i)].at(0).name;
-        string city_2 = adj_list[p[shortest.at(i)]].at(0).name;
-        cout << i << ": (" << city_1.data() << ", " << city_2.data() << ")";
-        cout << " " << cost_of(city_1, city_2) << endl;
-    }
-}
-
-/************************************************************
-*
-* graph::MST_Kruskal()
-*___________________________________________________________
-* This function finds MST using Kruskal's algorithm
-*___________________________________________________________
-* INPUTS:
-*   None
-*
-* OUTPUTS:
-*   None
-*
-*************************************************************/
-void graph::MST_Kruskal()
-{
-    // sort the edge into an list
-    lists<edge> l;
-    for(int i=0; i<size; i++)
-    {
-        for(int j=1; j<adj_list[i].size(); j++)
-        {
-            string city_1 = adj_list[i].at(0).name;
-            string city_2 = adj_list[i].at(j).name;
-            l.insert_sorted(edge(city_1, city_2, cost_of(city_1, city_2)));
-        }
-    }
-
-    // add the edge to MST from smallest to largest if it doesn't create cycle
-    lists<edge> MST;
-    for(int i=0; i<l.size(); i++)
-    {
-        if(!isCycle(MST, l.at(i)))
-        {
-            MST.push_back(l.at(i));
-        }
-        if(MST.size() == size-1)
-            break;
-    }
-
-    // prints out the list
-    for(int i=0; i<MST.size(); i++)
-    {
-        cout << i+1 << ": (" << MST.at(i).city_1.data() << ", "
-             << MST.at(i).city_2.data() << ")" << " "
-             << MST.at(i).weight << endl;
-    }
-
 }
 
 /************************************************************

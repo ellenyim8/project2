@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Dijkstra.cpp \
     admin.cpp \
+    checkdistance.cpp \
     date.cpp \
     designtrip.cpp \
     dreamvacation.cpp \
@@ -27,6 +28,10 @@ SOURCES += \
     map.cpp \
     modifysouvenirs.cpp \
     modifystadium.cpp \
+    purchase.cpp \
+    purchase_report.cpp \
+    purchasecontainer.cpp \
+    randomstadium.cpp \
     souvenir.cpp \
     souvenircontainer.cpp \
     stadium.cpp \
@@ -37,6 +42,7 @@ HEADERS += \
     Dijkstra.h \
     admin.h \
     binaryTree.h \
+    checkdistance.h \
     date.h \
     designtrip.h \
     dreamvacation.h \
@@ -47,6 +53,10 @@ HEADERS += \
     map.h \
     modifysouvenirs.h \
     modifystadium.h \
+    purchase.h \
+    purchase_report.h \
+    purchasecontainer.h \
+    randomstadium.h \
     souvenir.h \
     souvenircontainer.h \
     stadium.h \
@@ -55,11 +65,14 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    checkdistance.ui \
     dreamvacation.ui \
     mainwindow.ui \
     map.ui \
     modifysouvenirs.ui \
     modifystadium.ui \
+    purchase_report.ui \
+    randomstadium.ui \
     stadiumlists.ui \
     trips.ui
 

@@ -21,8 +21,6 @@ public:
     ModifySouvenirs(QWidget*parent, SouvenirContainer* s);
     ~ModifySouvenirs();
 
-    void saveAtSouvenirFile();      // saves modifications
-
 private slots:
     void on_addButtonSubmit_clicked();
     void on_deleteButtonSubmit_clicked();

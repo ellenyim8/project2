@@ -6,6 +6,7 @@
 #include "designtrip.h"
 #include "global.h"
 #include "map.h"
+
 namespace Ui {
 class trips;
 }

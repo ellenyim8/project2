@@ -8,7 +8,6 @@ extern Heap<Stadiums,StadiumsNameMin> MLS;
 extern Heap<Stadiums,StringMin> MLS2;
 extern Heap<Stadiums,StringMin> ALS;
 extern Heap<Stadiums,StringMin> NLS;
-extern vector<pair<string,QPoint>> positions;   // store all the stadiums and their positions
 
 typedef pair<string,string> p;
 typedef pair<p,int> dp;
@@ -38,6 +37,5 @@ struct Path{
 extern vector<pair<int,vector<string>>> MLSP;
 extern vector<vector<string>> ALSP;
 
-pair<string,QPoint> find_pos(const string& s);
 
 #endif // GLOBAL_H

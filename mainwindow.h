@@ -2,13 +2,16 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "modifysouvenirs.h"
 #include "admin.h"
 #include "map.h"
 #include "global.h"
 #include "stadiumlists.h"
 #include "trips.h"
 #include "dreamvacation.h"
+#include "checkdistance.h"
+#include "purchase_report.h"
+#include "randomstadium.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,16 +29,21 @@ private slots:
 
     void on_Map_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();       // show teams list
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_2_clicked();     // trips
 
-    void on_pushButton_3_clicked();
+    void on_pushButton_3_clicked();     // plan a dream vacation
+
+    void on_pushButton_4_clicked();     // check distances b/w stadiums
+
+    void on_pushButton_5_clicked();     // souvenir purchases report
+
+    void on_pushButton_6_clicked();     // randomly access any baseball stadium
 
 private:
     Ui::MainWindow *ui;
     Admin* administrator;
-
 };
 
 

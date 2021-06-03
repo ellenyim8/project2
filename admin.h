@@ -18,6 +18,7 @@ public:
 
 private slots:
     void on_login_clicked();
+    void on_close_clicked();
     void on_modify_souvenirs_clicked();
 
     void on_stadium_button_clicked();
